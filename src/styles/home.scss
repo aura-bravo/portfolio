@@ -1,0 +1,114 @@
+h1,
+p {
+  color: $primary-color;
+}
+
+.max-bound {
+  margin: 0 auto;
+  max-width: 1440px;
+}
+.logo{
+  padding-top: 50px;
+  width: 8%;
+}
+.home__main-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.home__hero-wrapper {
+  display: inline-flex;
+  margin-top: 10vw;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  
+}
+
+.home__hero-info__wrapper {
+  box-sizing: border-box;
+  width: 50%;
+  padding-right: rem(800);
+  text-align: left;
+}
+
+.home__hero-image__wrapper {
+  position: relative;
+  width: 40%;
+  height: 0;
+  padding-top: 40%;
+}
+
+.home__hero-background-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url('../../public/assets/img/ed1.jpg');
+}
+.home__project-wrapper {
+  position: relative;
+  width: 100%;
+  display:flex;
+  align-items: center;
+  margin-top: 240px;
+}
+.home__project-extra-info{
+  position: absolute;
+  left: -8%;
+  text-transform: uppercase;
+  transform: rotate(270deg);
+}
+.home__project-image__wrapper {
+  position: relative;
+  width: 60%;
+  height: 0;
+  padding-top: 36%;
+  margin-left: 8%;
+}
+
+.home__project-background-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 50%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url('../../public/assets/img/ed1.jpg');
+}
+.home__project-info__wrapper{
+  box-sizing: border-box;
+  position: absolute;
+  right: 8%;
+  width: 40%;
+  text-align: right;
+}
+.home__project-number__wrapper{
+  position: relative;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+}
+.home__project-line{
+  width: 35%;
+  margin-right: 5%;
+  border-bottom: 1px solid #000;
+}
+//************************* RESPONSIVE ****************************//
+@media (max-width: 1100px){
+  .max-bound {
+    margin: 0 auto;
+    width: calc(100vw - 7rem);
+  }
+  .home__project-info__wrapper{
+    width: 50%;
+  }
+}

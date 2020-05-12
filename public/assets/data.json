@@ -1,0 +1,38 @@
+[
+  {
+    "title":"Yoga Isaac Amber",
+    "description": "Isaac Ambel Yoga is a Yoga instructor based in Badajoz, Spain. The objective of the page was to share his trayectory as well as his approach to yoga, and to give imformation about the classes he impart in two different yoga centers in the city. The client eanted his web page to reflect peace an calm, also to show yoga both as a fisical and an espiritual activity, but always keeping a modern and clean look.",
+    "previewImage":"./assets/img/moc2.jpg",
+    "mainImage": "./assets/img/moc12.jpg",
+    "coverImage": "./assets/img/Recurso2logo.png",
+    "color1": "#7994BF",
+    "color2": "#83CDCE",
+    "color3": "#BBBECC",
+    "color4": "#262C30",
+    "font1":  "Poppins",
+    "font2": "",
+    "collageImage1": "../assets/img/MOC1.jpg",
+    "collageImage2": "../assets/img/moc6.jg",
+    "collageImage3": "../assets/img/moc3.jpg",
+    "collageImage4": "../assets/img/moc4.jpg",
+    "fullHomePage": "../assets/img/moc5.png"
+  },
+  {
+    "title":"Infinite Love",
+    "description": "Infinite Love is a Jewelery brand based in Trujillo Perú, inspired at the great brands like cartier, graff and gucci, the client wanted an elegant but modern page. A very clean and clear pge that let the product take protagonism. The colors were choosen according to the logo.",
+    "previewImage":"./assets/img/moc10.jpg",
+    "mainImage": "../assets/img/moc14.jpg",
+    "coverImage": "../assets/img/moc11.jpg",
+    "color1": "#F5F5F5",
+    "color2": "#D2B246",
+    "color3": "#7E7E7E",
+    "color4": "#000000",
+    "font1":  "Playfair Display",
+    "font2": "Belleza",
+    "collageImage1": "../assets/img/moc10.jpg",
+    "collageImage2": "../assets/img/moc8.jg",
+    "collageImage3": "../assets/img/moc9.jpg",
+    "collageImage4": "../assets/img/moc12.jpg",
+    "fullHomePage": "../assets/img/MOC15.png"
+  }
+ ]

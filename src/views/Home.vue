@@ -1,28 +1,25 @@
-<style lang="scss" src="../styles/home.scss" scoped></style>
+<style lang="scss" src="../styles/home.scss"></style>
 <template>
-  <div class="home__main-container">
-    <div class="max-bound">
-      <img
-        class="logo"
-        alt="Aura Bravo logo"
-        src="../../public/assets/img/Recurso1logo.png"
-      />
-      <section class="section-spacer section-spacer--large">
-        <div class="home__hero-wrapper">
-          <div class="home__hero-info__wrapper">
-            <h1>Aura Bravo.</h1>
-            <p>
-              Hi, my name is Aura Bravo. I'm an Industrial Designer passionate
-              about digital media and interfaces, it's design and development.
-              Here is some of my work.
-            </p>
-          </div>
-          <div class="home__hero-image__wrapper">
-            <div class="home__hero-background-image"></div>
-          </div>
+  <div>
+    <section class="section-spacer section-spacer--large">
+      <div class="hero-wrapper">
+        <div class="hero-info__wrapper">
+          <h1 class="title__wrapper">
+            <div class="title-animation">Aura Bravo.</div>
+          </h1>
+          <p>
+            Hi, my name is Aura Bravo. I'm an Industrial Designer passionate
+            about digital media and interfaces, it's design and development.
+            Here is some of my work.
+          </p>
         </div>
-      </section>
-      <section class="section-spacer section-spacer--large" ref="projectSectionRef" v-for="(data, index, key) in projectData" :index="index" :key="key">
+        <div class="hero-image__wrapper">
+          <div class="hero-background-image"></div>
+        </div>
+      </div>
+    </section>
+    <section class="section-spacer section-spacer--large" ref="projectSectionRef" v-for="(data, index, key) in projectData" :index="index" :key="key">
+      <div class="home__project-router" @click="setProject(index)">
         <div class="home__project-wrapper" :class="{'home__project-wrapper--reverse': !index % 2 == 0}">
           <p class="home__project__extra-info">
             Diseño Web - 2020 - Dayvo Sistemas
@@ -38,8 +35,8 @@
             </div>
           </div>
         </div>
-      </section>
-    </div>
+      </div>
+    </section>
   </div>
 </template>
 
@@ -47,40 +44,79 @@
 // @ is an alias to /src
 /* import Project from '../components/Project.vue' */
 //import styles from '../styles/home.scss'
-import Axios from "axios";
-let dataJson = require("../../public/assets/data.json");
+import store from './../store/index';
+import router from './../router/index';
 export default {
   name: "Home",
   data() {
     return {
-      projectData: dataJson,
+      projectData: this.$store.state.data,
       imageReleased: false,
+      store: store
     };
   },
   components: {},
   mounted() {
     this.releaseImage();
+    this.runAnimation();
   },  
   methods: {
-    getData() {
-      Axios.get("");
+    setProject(index) {
+      this.$store.commit("setProject", index);
+      router.push("/project");
     },
     releaseImage() {
-      window.addEventListener('scroll', () => {
+      window.addEventListener("scroll", () => {
         this.sectionCatcher();
       })
     },
     sectionCatcher() {
       for (let i = 0; i < this.$refs.projectSectionRef.length; i++) {
         const element = this.$refs.projectSectionRef[i];
-        const projectNameText = element.querySelector('.home__project-info__wrapper h2').innerHTML;
-        console.log(projectNameText);
-        if (!element.classList.contains('scrolled__to-project')) {
-          if (window.scrollY > element.offsetTop - window.innerHeight / 3) {
+        /* const projectNameText = element.querySelector('.home__project-info__wrapper h2').innerHTML; */
+        if (!element.classList.contains("scrolled__to-project")) {
+          if (window.scrollY > element.offsetTop - window.innerHeight / 2) {
             element.classList.add('scrolled__to-project');
           }
         }
       }
+    },
+    createWords(title) {
+      let titleWrapper = document.querySelector(title);
+      let sentence = titleWrapper.innerHTML;
+      let words = sentence.split(" ");
+      let delayValue = 0;
+      titleWrapper.innerHTML = '';
+      for (let j = 0; j < words.length; j++) {
+        let letters = words[j].split("");
+        const wordWrapper = document.createElement('span');
+        const wordSpaceWrapper = document.createElement('span');
+        const wordSpaceChar = document.createTextNode(' ');
+        for (let n = 0; n < letters.length; n++) {
+          const letter = letters[n];
+          const letterSpan = document.createElement('span');
+          const letterChar = document.createTextNode(letter);
+          letterSpan.appendChild(letterChar);
+          wordWrapper.appendChild(letterSpan);
+          this.addDelay(letterSpan, delayValue);
+          delayValue += 0.05;
+        }
+        wordSpaceWrapper.appendChild(wordSpaceChar);
+        titleWrapper.appendChild(wordWrapper);
+        titleWrapper.appendChild(wordSpaceWrapper);
+      }
+      this.startAnimation(titleWrapper);
+    },
+    addDelay(letterDiv, delayFactor) {
+      letterDiv.style.transitionDelay = delayFactor + 's';
+    },
+    startAnimation(titleWrapper) {
+      setTimeout(() => {
+        titleWrapper.classList.add('title-animation--active');
+      }, 400);
+    },
+    runAnimation() {
+      this.createWords('.title-animation');
     }
   },
 };

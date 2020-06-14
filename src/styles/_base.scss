@@ -1,10 +1,47 @@
-body {
-  background-color: black;
+
+.section-spacer {
+  margin-top: 144px;
+}
+.section-spacer.section-spacer--large {
+  margin-top: 288px;
 }
 
-section.section-spacer {
-  padding: 80px;
-  &.section-spacer--large {
-    padding: 112px 210px;
+
+.hero-wrapper, .project__hero-wrapper {
+  display: flex;
+  margin-top: 8vw;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-between;
+  
+}
+
+.hero-info__wrapper {
+  box-sizing: border-box;
+  width: 50%;
+  padding-right: rem(800);
+  text-align: left;
+}
+
+.hero-image__wrapper {
+  position: relative;
+  width: 40%;
+  height: 0;
+  padding-top: 40%;
+}
+
+.hero-background-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url('../../public/assets/img/ed1.jpg');
+  .project-container & {
+    background-size: contain;
   }
 }

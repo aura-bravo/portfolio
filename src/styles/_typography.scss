@@ -5,7 +5,7 @@ body {
 
 h1, .h1 {
   font-family: 'Playfair Display', serif;
-  font-size: 7vw;
+  font-size: 5.5vw;
   font-weight: 500;
   color: $primary-color;
   margin: 0 0 20px 0;
@@ -16,11 +16,109 @@ h1, .h1 {
 p {
   font-size: 1.2vw;
 }
-.home__project-number{
+.home__project-number {
   font-family: 'Playfair Display', serif;
   font-size: 170px;
   font-style: italic;
   color: rgba(0,0,0,0.05);
   margin: 0;
   line-height: 0.8;
+}
+
+
+@media (max-width: 1200px) {
+  h1 {
+    font-size: 6vw
+  }
+  p {
+    font-size: 1.5vw;
+  }
+  p.home__project__extra-info {
+    font-size: 1vw;
+  }
+  .home__project-number {
+    font-size: 13vw;
+  }
+}
+
+
+@media (max-width: 1000px) {
+  h1 {
+    font-size: 6.5vw
+  }
+  h2 {
+    
+  }
+  p {
+    font-size: 1.8vw;
+  }
+  p.home__project__extra-info {
+    font-size: 1.3vw;
+  }
+}
+
+@media (max-width: 800px) {
+  h1 {
+    font-size: 8.5vw
+  }
+  h2.h1 {
+    font-size: 8.5vw;
+  }
+  p {
+    font-size: 2.5vw;
+  }
+  p.home__project__extra-info {
+    font-size: 2vw;
+  }
+}
+
+@media (max-width: 700px) {
+  h1 {
+    font-size: 10.5vw;
+  }
+  p {
+    font-size: 2.5vw;
+  }
+  p.home__project__extra-info {
+    font-size: 2.5vw;
+  }
+}
+
+@media (max-width: 600px) {
+  h1 {
+    font-size: 10vw;
+  }
+  h2.h1 {
+    font-size: 10vw;
+  }
+  p {
+    font-size: 3vw;
+  }
+  p.home__project__extra-info {
+    font-size: 2.5vw;
+  }
+}
+
+@media (max-width: 500px) {
+  h1 {
+    font-size: 11vw;
+  }
+  p {
+    font-size: 4vw;
+  }
+  p.home__project__extra-info {
+    font-size: 2.5vw;
+  }
+}
+
+@media (max-width: 400px) {
+  h1 {
+    font-size: 12vw;
+  }
+  p {
+    font-size: 5vw;
+  }
+  p.home__project__extra-info {
+    font-size: 2.5vw;
+  }
 }

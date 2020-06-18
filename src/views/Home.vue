@@ -51,6 +51,8 @@
 import store from './../store/index';
 import router from './../router/index';
 import * as debounce from 'lodash.debounce';
+import Mixin from '../mixins/Mixin';
+import routerTransition from '../mixins/router-transition';
 export default {
   name: "Home",
   data() {
@@ -62,16 +64,20 @@ export default {
       sectionAnimatedCount: 0
     };
   },
+  mixins: [Mixin, routerTransition],
   components: {},
   mounted() {
     this.releaseImage();
-    this.breakAllTitles();
+    //this.breakAllTitles();
     this.sections = document.querySelectorAll('section');
   },  
   methods: {
     setProject(index) {
-      this.$store.commit("setProject", index);
-      router.push(this.projectData[index].id);
+      this.routerTransition();
+      setTimeout(() => {
+        this.$store.commit("setProject", index);
+        router.push(this.projectData[index].id);
+      }, 750)
     },
     releaseImage() {
       window.addEventListener("scroll", () => {
@@ -90,7 +96,7 @@ export default {
         }
       })
     }, 100),
-    breakAllTitles() {
+    /* breakAllTitles() {
       const titles = document.querySelectorAll('.title-animation');
       for (let i = 0; i < titles.length; i++) {
         const element = titles[i];
@@ -134,7 +140,7 @@ export default {
       setTimeout(() => {
         document.body.classList.add('animations--started');
       }, 400);
-    },
+    }, */
   },
 };
 </script>

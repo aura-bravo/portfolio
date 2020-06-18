@@ -1,17 +1,23 @@
 <style lang="scss" src="../styles/project.scss" scoped></style>
 <template>
-  <div>  
+  <section class="section-spacer section-spacer--large scrolled__to">
     <div class="project-container" v-for="(project, index, key) of projectData" :key="key">
       <div class="project-wrapper" v-if="index == projectIndex">
-        <div class="hero-wrapper">  
-          <div class="hero-info__wrapper">
-            <h1>{{project.title}}</h1>
-            <p>{{project.description}}</p>
+        <transition name="fade">
+          <div class="hero-wrapper">  
+            <div class="hero-info__wrapper">
+              <h2 class="h1 title__wrapper">
+                <div class="title-animation">
+                  {{project.title}}
+                </div>
+              </h2>
+              <p>{{project.description}}</p>
+            </div>
+            <div class="hero-image__wrapper">
+              <div class="hero-background-image" :style="{backgroundImage: 'url(' + project.mainImage + ')'}"></div>
+            </div>
           </div>
-          <div class="hero-image__wrapper">
-            <div class="hero-background-image" :style="{backgroundImage: 'url(' + project.mainImage + ')'}"></div>
-          </div>
-        </div>
+        </transition>
         <div class="project-content__wrapper">
           <section class="section-spacer">  
             <div class="project__cover-image__wrapper">
@@ -73,7 +79,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <script>
@@ -81,6 +87,8 @@
 /* import Project from '../components/Project.vue' */
 //import styles from '../styles/home.scss'
 import store from "./../store/index";
+import Mixin from "../mixins/Mixin";
+import routerTransition from "../mixins/router-transition";
 export default {
   name: "Project",
   data() {
@@ -91,6 +99,7 @@ export default {
       store: store
     };
   },
+  mixins: [Mixin, routerTransition],
   components: {},
   mounted() {
     this.releaseImage();

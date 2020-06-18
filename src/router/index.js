@@ -25,5 +25,13 @@ const router = new VueRouter({
   mode: 'history',
   routes
 });
+router.beforeEach((to, from, next) => {
+  // More code ...
+  setTimeout(() => {
+    next();
+    window.scrollTo(0, 0);
+    document.body.classList.remove('animations--started');
+  }, 400);
+});
 
 export default router;

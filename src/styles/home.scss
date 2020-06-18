@@ -113,7 +113,7 @@ p {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: -200px center;
-  transform: rotate(0) scale(1.1);
+  transform: rotate(0) scale(1);
   transition: background-position .7s .9s ease, transform .5s ease-out;
   will-change: background-position, transform;
 }
@@ -175,7 +175,7 @@ p {
 .title-animation span span {
   display: inline-block;
   opacity: 0;
-  transform: translateY(120%);
+  transform: translateY(50%);
   transition: transform .3s ease-out, opacity .3s;
 }
 

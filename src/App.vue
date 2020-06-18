@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <div class="router__wave-transition"></div>
     <div class="max-bound">
       <div class="home__main-container">
         <div class="home__outer-content">

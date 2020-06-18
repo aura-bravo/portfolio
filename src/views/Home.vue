@@ -1,7 +1,7 @@
 <style lang="scss" src="../styles/home.scss"></style>
 <template>
   <div>
-    <section class="section-spacer section-spacer--large">
+    <section class="section-spacer section-spacer--large scrolled__to" ref="sectionRef">
       <div class="hero-wrapper">
         <div class="hero-info__wrapper">
           <h1 class="title__wrapper">
@@ -14,21 +14,25 @@
           </p>
         </div>
         <div class="hero-image__wrapper">
-          <div class="hero-background-image"></div>
+          <div class="hero-background-image section-image"></div>
         </div>
       </div>
     </section>
-    <section class="section-spacer section-spacer--large" ref="projectSectionRef" v-for="(data, index, key) in projectData" :index="index" :key="key">
+    <section class="section-spacer section-spacer--large" ref="sectionRef" v-for="(data, index, key) in projectData" :index="index" :key="key">
       <div class="home__project-router" @click="setProject(index)">
         <div class="home__project-wrapper" :class="{'home__project-wrapper--reverse': !index % 2 == 0}">
           <p class="home__project__extra-info">
             Diseño Web - 2020 - Dayvo Sistemas
           </p>
-          <div class="home__project-image__wrapper" :class="{'background-image__wrapper--opened': imageReleased == true}">
+          <div class="home__project-image__wrapper section-image" :class="{'background-image__wrapper--opened': imageReleased == true}">
             <div class="home__project-background-image" :style="{backgroundImage: 'url(' + data.previewImage + ')'}"></div>
           </div>
           <div class="home__project-info__wrapper">
-            <h2 class="h1">{{data.title}}</h2>
+            <h2 class="h1 title__wrapper">
+              <div class="title-animation">
+                {{data.title}}
+              </div>
+            </h2>
             <div class="home__project-number__wrapper">
               <p class="home__project-number">0{{index + 1}}</p>
               <div class="home__project-line"></div>
@@ -46,78 +50,91 @@
 //import styles from '../styles/home.scss'
 import store from './../store/index';
 import router from './../router/index';
+import * as debounce from 'lodash.debounce';
 export default {
   name: "Home",
   data() {
     return {
       projectData: this.$store.state.data,
       imageReleased: false,
-      store: store
+      store: store,
+      sections: undefined,
+      sectionAnimatedCount: 0
     };
   },
   components: {},
   mounted() {
     this.releaseImage();
-    this.runAnimation();
+    this.breakAllTitles();
+    this.sections = document.querySelectorAll('section');
   },  
   methods: {
     setProject(index) {
       this.$store.commit("setProject", index);
-      router.push("/project");
+      router.push(this.projectData[index].id);
     },
     releaseImage() {
       window.addEventListener("scroll", () => {
-        this.sectionCatcher();
+        if (this.sectionAnimatedCount < this.sections.length) {
+          this.sectionCatcher();
+        }
       })
     },
-    sectionCatcher() {
-      for (let i = 0; i < this.$refs.projectSectionRef.length; i++) {
-        const element = this.$refs.projectSectionRef[i];
-        /* const projectNameText = element.querySelector('.home__project-info__wrapper h2').innerHTML; */
-        if (!element.classList.contains("scrolled__to-project")) {
-          if (window.scrollY > element.offsetTop - window.innerHeight / 2) {
-            element.classList.add('scrolled__to-project');
+    sectionCatcher: debounce(function() {
+      this.sections.forEach(section => {
+        if (!section.classList.contains("scrolled__to")) {
+          if (window.scrollY > section.offsetTop - window.innerHeight / 1.5) {
+            section.classList.add('scrolled__to');
+            this.sectionAnimatedCount += 1;
           }
         }
+      })
+    }, 100),
+    breakAllTitles() {
+      const titles = document.querySelectorAll('.title-animation');
+      for (let i = 0; i < titles.length; i++) {
+        const element = titles[i];
+        this.createWords(element);  
       }
     },
     createWords(title) {
-      let titleWrapper = document.querySelector(title);
+      let titleWrapper = title;
       let sentence = titleWrapper.innerHTML;
       let words = sentence.split(" ");
-      let delayValue = 0;
+      let delayValue = 0.3;
       titleWrapper.innerHTML = '';
       for (let j = 0; j < words.length; j++) {
-        let letters = words[j].split("");
-        const wordWrapper = document.createElement('span');
-        const wordSpaceWrapper = document.createElement('span');
-        const wordSpaceChar = document.createTextNode(' ');
-        for (let n = 0; n < letters.length; n++) {
-          const letter = letters[n];
-          const letterSpan = document.createElement('span');
-          const letterChar = document.createTextNode(letter);
-          letterSpan.appendChild(letterChar);
-          wordWrapper.appendChild(letterSpan);
-          this.addDelay(letterSpan, delayValue);
-          delayValue += 0.05;
+        if (!words[j] == "") {
+          let letters = words[j].split("");
+          console.log(letters, j);
+          const wordWrapper = document.createElement('span');
+          const wordSpaceWrapper = document.createElement('span');
+          wordWrapper.style.display = "inline-block";
+          const wordSpaceChar = document.createTextNode(' ');
+          for (let n = 0; n < letters.length; n++) {
+            const letter = letters[n];
+            const letterSpan = document.createElement('span');
+            const letterChar = document.createTextNode(letter);
+            letterSpan.appendChild(letterChar);
+            wordWrapper.appendChild(letterSpan);
+            this.addDelay(letterSpan, delayValue);
+            delayValue += 0.075;
+          }
+          wordSpaceWrapper.appendChild(wordSpaceChar);
+          titleWrapper.appendChild(wordWrapper);
+          titleWrapper.appendChild(wordSpaceWrapper);
         }
-        wordSpaceWrapper.appendChild(wordSpaceChar);
-        titleWrapper.appendChild(wordWrapper);
-        titleWrapper.appendChild(wordSpaceWrapper);
       }
-      this.startAnimation(titleWrapper);
+      this.startAnimations();
     },
     addDelay(letterDiv, delayFactor) {
       letterDiv.style.transitionDelay = delayFactor + 's';
     },
-    startAnimation(titleWrapper) {
+    startAnimations() {
       setTimeout(() => {
-        titleWrapper.classList.add('title-animation--active');
+        document.body.classList.add('animations--started');
       }, 400);
     },
-    runAnimation() {
-      this.createWords('.title-animation');
-    }
   },
 };
 </script>

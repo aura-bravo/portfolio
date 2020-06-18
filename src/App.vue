@@ -66,14 +66,14 @@ ul, li {
   padding-top: 50px;
 }
 
-.home__outer-content {
+/* .home__outer-content {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   z-index: 999;
-}
+} */
 .main-nav__toggle, .social {
   position: absolute;
   top: 50%;
@@ -88,11 +88,6 @@ ul, li {
 }
 .social {
   right: 3.75vw;
-}
-
-.home__main-container {
-  padding: 100px 0;
-  padding-bottom: 0;
 }
 
 </style>

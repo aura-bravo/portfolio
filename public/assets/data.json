@@ -1,5 +1,6 @@
 [
   {
+    "id": "yoga-isaac-ambel",
     "title":"Yoga Isaac Ambel",
     "description": "Isaac Ambel Yoga is a Yoga instructor based in Badajoz, Spain. The objective of the page was to share his trayectory as well as his approach to yoga, and to give imformation about the classes he impart in two different yoga centers in the city. The client eanted his web page to reflect peace an calm, also to show yoga both as a fisical and an espiritual activity, but always keeping a modern and clean look.",
     "previewImage":"./assets/img/moc2.jpg",
@@ -14,6 +15,7 @@
     "fullHomePage": "../assets/img/moc5.png"
   },
   {
+    "id": "infinite-love",
     "title":"Infinite Love",
     "description": "Infinite Love is a Jewelery brand based in Trujillo Perú, inspired at the great brands like cartier, graff and gucci, the client wanted an elegant but modern page. A very clean and clear pge that let the product take protagonism. The colors were choosen according to the logo.",
     "previewImage":"./assets/img/moc10.jpg",

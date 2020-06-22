@@ -1,8 +1,46 @@
 .section-spacer {
   margin-top: 144px;
+  &:first-of-type {
+    margin-top: 0;
+  }
 }
 .section-spacer.section-spacer--large {
   margin-top: 288px;
+  &:first-of-type {
+    margin-top: 0;
+  }
+}
+
+.nav {
+  position: fixed;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  height: 5vw;
+  top: 50%;
+  left: -4rem;
+  transform: translateY(-50%) rotate(-90deg);
+  span {
+    display: block;
+    position: relative;
+    width: 80px;
+    height: 2px;
+    margin: 0 32px;
+    background-color: #000;
+  }
+  a {
+    text-decoration: none;
+    font-family: "Poppins";
+    color: $primary-color;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  a, span {
+    display: inline-block;
+    vertical-align: middle;
+  }
 }
 
 .hero-wrapper,
@@ -51,6 +89,9 @@
     .home__project-wrapper--reverse & {
       right: -8.5vw;
     }
+  }
+  .nav {
+    left: -6rem;
   }
 }
 

@@ -4,15 +4,16 @@
     <div class="router__wave-transition--looper"></div>
     <div class="max-bound">
       <div class="home__main-container">
-        <div class="home__outer-content">
+        <!-- <div class="home__outer-content">
           <div class="main-nav__toggle"></div>
           <div class="social"></div>
-        </div>
+        </div> -->
         <img class="logo" alt="Aura Bravo logo" src="../public/assets/img/Recurso1logo.png" />
-        <!-- <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-        </div>-->
+        <nav class="nav">
+          <router-link to="/about">About</router-link>
+          <span></span>
+          <router-link to="/contact">Contact</router-link>
+        </nav>
         <router-view />
       </div>
     </div>
@@ -21,10 +22,11 @@
 
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: "Poppins", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: #222222;
+  color: #414040;
+  background-color: #f5f5f1;
 }
 
 #nav {
@@ -53,8 +55,9 @@ li {
 
 .logo {
   position: absolute;
-  width: 120px;
+  top: 48px;
   left: 50%;
+  width: 100px;
   transform: translateX(-50%);
 }
 .logo::before {

@@ -14,9 +14,6 @@
                 </h2>
                 <p>{{project.description}}</p>
               </div>
-              <div class="hero-image__wrapper">
-                <div class="hero-background-image" :style="{backgroundImage: 'url(' + project.mainImage + ')'}"></div>
-              </div>
             </div>
           </section>
         </transition>

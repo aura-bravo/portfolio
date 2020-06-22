@@ -9,7 +9,7 @@ const routes = [
   {
     path: "/",
     name: "Home",
-    component: Home
+    component: Home,
   },
   {
     path: "/:name",
@@ -17,21 +17,21 @@ const routes = [
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: Project
-  }
+    component: Project,
+  },
 ];
 
 const router = new VueRouter({
-  mode: 'history',
-  routes
+  mode: "history",
+  routes,
 });
 router.beforeEach((to, from, next) => {
   // More code ...
   setTimeout(() => {
-    next();
     window.scrollTo(0, 0);
-    document.body.classList.remove('animations--started');
-  }, 400);
+    document.body.classList.remove("animations--started");
+    next();
+  }, 1000);
 });
 
 export default router;

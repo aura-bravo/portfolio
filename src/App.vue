@@ -1,21 +1,18 @@
 <template>
   <div id="app">
     <div class="router__wave-transition"></div>
+    <div class="router__wave-transition--looper"></div>
     <div class="max-bound">
       <div class="home__main-container">
         <div class="home__outer-content">
           <div class="main-nav__toggle"></div>
           <div class="social"></div>
         </div>
-        <img
-          class="logo"
-          alt="Aura Bravo logo"
-          src="../public/assets/img/Recurso1logo.png"
-        />
-    <!-- <div id="nav">
+        <img class="logo" alt="Aura Bravo logo" src="../public/assets/img/Recurso1logo.png" />
+        <!-- <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
-    </div> -->
+        </div>-->
         <router-view />
       </div>
     </div>
@@ -42,7 +39,8 @@
 #nav a.router-link-exact-active {
   color: #42b983;
 }
-ul, li {
+ul,
+li {
   list-style: none;
   padding: 0;
   padding-left: 0;
@@ -60,7 +58,7 @@ ul, li {
   transform: translateX(-50%);
 }
 .logo::before {
-  content: '';
+  content: "";
   display: block;
   position: relative;
   width: 100%;
@@ -75,7 +73,8 @@ ul, li {
   height: 100%;
   z-index: 999;
 } */
-.main-nav__toggle, .social {
+.main-nav__toggle,
+.social {
   position: absolute;
   top: 50%;
   width: 30px;
@@ -90,5 +89,4 @@ ul, li {
 .social {
   right: 3.75vw;
 }
-
 </style>

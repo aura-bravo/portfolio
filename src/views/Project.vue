@@ -1,8 +1,8 @@
 <style lang="scss" src="../styles/project.scss" scoped></style>
 <template>
   <div>
-    <div class="project-container" v-for="(project, index, key) of projectData" :key="key">
-      <div class="project-wrapper" v-if="index == projectIndex">
+    <div class="project-container" v-for="(project, index) of projectData" :key="project.id" :index="index">
+      <div class="project-wrapper" v-if="project.id == key">
         <transition name="fade">
           <section class="section-spacer section-spacer--large scrolled__to">
             <div class="hero-wrapper">  

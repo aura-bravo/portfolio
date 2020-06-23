@@ -5,7 +5,7 @@
   }
 }
 .section-spacer.section-spacer--large {
-  margin-top: 288px;
+  margin-top: 10vw;
   &:first-of-type {
     margin-top: 0;
   }
@@ -55,9 +55,12 @@
 
 .hero-info__wrapper {
   box-sizing: border-box;
-  width: 60%;
+  width: 50%;
   padding-right: rem(800);
   text-align: left;
+  .project-container & {
+    width: 60%;
+  }
 }
 
 .hero-image__wrapper {
@@ -124,6 +127,9 @@
   }
   .section-spacer.section-spacer--large {
     margin-top: 100px;
+    &:first-of-type {
+      margin-top: 100px;
+    }
   }
   .hero-wrapper,
   .project__hero-wrapper {
@@ -132,6 +138,9 @@
   .hero-info__wrapper {
     width: 100%;
     margin-bottom: 32px;
+    .project-container & {
+      width: 100%;
+    }
   }
   .home__project-wrapper {
     padding-left: 0;

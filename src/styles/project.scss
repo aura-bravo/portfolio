@@ -100,3 +100,24 @@
         }
     }
 }
+
+@media (max-width: 600px) {
+    .project-branding__wrapper {
+        flex-wrap: wrap;
+        width: 100%;
+    }
+    .project-branding__color, .project-branding__color  ul {
+        width: 100%;
+        /* div {
+            width: 60px;
+            height: 60px;
+        } */
+    }
+    .project-branding__typography__wrapper {
+        width: 100%;
+    }
+    .project__images-grid__image {
+        width: 100%;
+        padding-top: 65%;
+    }
+}

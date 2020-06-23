@@ -34,6 +34,11 @@ h2, .h2 {
   letter-spacing: 0px;
 
 }
+.about ul li {
+  list-style-type: circle;
+  font-size: 1vw;
+  padding-bottom: 10px;
+}
 
 p {
   font-size: 1.1vw;
@@ -60,8 +65,19 @@ p {
   h1 {
     font-size: 6vw
   }
+  .about h3, .about .h3 {
+    font-size: 3.3vw;
+  }
+  h2, .h2 {
+    font-size: 3.2vw;
+  }
   p {
     font-size: 1.4vw;
+  }
+  .about ul li {
+    list-style-type: circle;
+    font-size: 1.6vw;
+    padding-bottom: 10px;
   }
   p.home__project__extra-info {
     font-size: 1vw;
@@ -76,8 +92,11 @@ p {
   h1 {
     font-size: 6.5vw
   }
-  h2 {
-    font-size: 3.5vw
+  h2, .h2 {
+    font-size: 3.2vw;
+  }
+  .about h3, .about .h3 {
+    font-size: 3.4vw;
   }
   p {
     font-size: 1.8vw;
@@ -94,8 +113,19 @@ p {
   h2.h1 {
     font-size: 8.5vw;
   }
+  h2, .h2 {
+    font-size: 4.2vw;
+  }
+  .about h3, .about .h3 {
+    font-size: 4.3vw;
+  }
   p {
     font-size: 2.5vw;
+  }
+  .about ul li {
+    list-style-type: circle;
+    font-size: 2.3vw;
+    padding-bottom: 10px;
   }
   p.home__project__extra-info {
     font-size: 2vw;
@@ -106,8 +136,17 @@ p {
   h1 {
     font-size: 10.5vw;
   }
+  h2, .h2 {
+    font-size: 5.2vw;
+  }
+  .about h3, .about .h3 {
+    font-size: 5.3vw;
+  }
   p {
     font-size: 2.5vw;
+  }
+  .about ul li { 
+    font-size: 2.4vw;
   }
   p.home__project__extra-info {
     font-size: 2.5vw;
@@ -121,8 +160,17 @@ p {
   h2.h1 {
     font-size: 10vw;
   }
+  h2, .h2 {
+    font-size: 4.8vw;
+  }
+  .about h3, .about .h3 {
+    font-size: 5vw;
+  }
   p {
     font-size: 3vw;
+  }
+  .about ul li {
+    font-size: 2.8vw;
   }
   p.home__project__extra-info {
     font-size: 2.5vw;
@@ -133,8 +181,17 @@ p {
   h1 {
     font-size: 11vw;
   }
+  h2, .h2 {
+    font-size: 5.2vw;
+  }
+  .about h3, .about .h3 {
+    font-size: 5.5vw;
+  }
   p {
     font-size: 4vw;
+  }
+  .about ul li {
+    font-size: 3.8vw;
   }
   p.home__project__extra-info {
     font-size: 2.5vw;
@@ -145,8 +202,14 @@ p {
   h1 {
     font-size: 12vw;
   }
+  .about h3, .about .h3 {
+    font-size: 8vw;
+  }
   p {
     font-size: 5vw;
+  }
+  .about ul li {
+    font-size: 4.7vw;
   }
   p.home__project__extra-info {
     font-size: 2.5vw;

@@ -43,6 +43,16 @@
   }
 }
 
+.about .hero-wrapper,
+.about .project__hero-wrapper {
+  display: flex;
+  margin-top: 8vw;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
 .hero-wrapper,
 .project__hero-wrapper {
   display: flex;
@@ -61,6 +71,13 @@
   .project-container & {
     width: 60%;
   }
+}
+.about .hero-info__wrapper {
+  box-sizing: border-box;
+  width: 66%;
+  margin-left: 8,3%;
+  padding-right: rem(800);
+  text-align: left;
 }
 
 .hero-image__wrapper {

@@ -24,9 +24,3 @@
     mixins: [Mixin, routerTransition],
   }
 </script>
-
-font-family: Poppins;
-font-style: normal;
-font-weight: 200;
-font-size: 48px;
-line-height: 72px;

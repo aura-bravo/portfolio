@@ -28,7 +28,7 @@
       <div class="home__project-router" @click="setProject(index)">
         <div
           class="home__project-wrapper"
-          :class="{'home__project-wrapper--reverse': !index % 2 == 0}"
+          :class="{'home__project-wrapper--reverse': !(index % 2 == 0)}"
         >
           <div
             class="home__project-image__wrapper section-image"

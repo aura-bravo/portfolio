@@ -11,6 +11,7 @@
     "axios": "^0.19.2",
     "core-js": "^3.6.4",
     "es6-promise": "^4.2.8",
+    "gsap": "^3.3.4",
     "lodash": "^4.17.15",
     "lodash.debounce": "^4.0.8",
     "sass-loader": "^8.0.2",

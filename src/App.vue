@@ -1,5 +1,7 @@
 <template>
   <div id="app">
+    <div class="pointer-circle" ref="circleRef"></div>
+    <div class="pointer" ref="pointer"></div>
     <div class="router__wave-transition"></div>
     <div class="router__wave-transition--looper"></div>
     <div class="max-bound">
@@ -26,18 +28,46 @@
 </template>
 
 <script>
+import { gsap } from "gsap";
 export default {
   name: "App",
   data() {
     return {
-      isMenuOpened: false
+      isMenuOpened: false,
     }
+  },
+  mounted() {
+    this.addEvents();
   },
   methods: {
     openMenu() {
       this.isMenuOpened = !this.isMenuOpened;
+      if (this.isMenuOpened) {
+        document.body.classList.add('no-scroll');
+      } else {
+        document.body.classList.remove('no-scroll');
+      }
+    },
+    addEvents() {
+      window.addEventListener('mousemove', event => {
+        this.followPointer(event);
+      });
+    },
+    followPointer(e) {
+      const rawX = e.clientX;
+      const rawY = e.clientY;
+      const halfW = window.innerWidth / 2;
+      const halfH = window.innerHeight / 2 - window.scrollY;
+      gsap.to(this.$refs.circleRef, 0.5, {
+        x: rawX - halfW,
+        y: rawY - halfH
+      });
+      gsap.to(this.$refs.pointer, 0, {
+        x: rawX - halfW,
+        y: rawY - halfH
+      });
     }
-  },
+  }
 };
 </script>
 
@@ -48,6 +78,7 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   color: #414040;
   background-color: #f5f5f1;
+  min-width: 100vh;
 }
 
 #nav {

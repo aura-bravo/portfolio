@@ -21,7 +21,7 @@
     "previewImage":"./assets/img/moc10.jpg",
     "mainImage": "../assets/img/moc14.jpg",
     "coverImage": "../assets/img/moc11.jpg",
-    "colors": ["#F5F5F5", "#D2B246", "#7E7E7E", "#000000"],
+    "colors": ["#FFFFFF", "#D2B246", "#7E7E7E", "#000000"],
     "fonts":  ["Playfair Display", "Belleza"],
     "collageImage1": "../assets/img/moc10.jpg",
     "collageImage2": "../assets/img/moc8.jpg",

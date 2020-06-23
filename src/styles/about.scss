@@ -115,53 +115,14 @@ body {
     }
 }
   
-  
-  
-  
-  
-  //// ANIMATIONS
-  .title-animation {
-    position: relative;
-  }
-  
-  .title__wrapper {
-    position: relative;
-  }
-  
-  
-  .title-animation {
-    position: relative;
-    opacity: 0;
-  }
-  
-  .title-animation span span {
-    display: inline-block;
-    opacity: 0;
-    transform: translateY(50%);
-    transition: transform .3s ease-out, opacity .3s;
-  }
-  
-  .animations--started .hero-info__wrapper .title-animation, .scrolled__to .home__project-info__wrapper .title-animation {
-    opacity: 1;
-    span span {
-      opacity: 1;
-      transform: translateY(0);
-    } 
-  }
-  
   //************************* RESPONSIVE ****************************/
   @media (max-width: 1100px){
-    .max-bound {
-      margin: 0 auto;
-      width: 70vw;
-    }
     .about .hero-wrapper {
       flex-wrap: wrap; 
     }
   }
   @media (max-width: 1000px){
-    
-      .numeration__wrapper{
+    .numeration__wrapper{
         width: 100%;
         text-align: left;
     }
@@ -175,9 +136,6 @@ body {
   }
   
   @media (max-width: 800px) {
-    .max-bound {
-      width: 80vw;
-    }
     .subsection-info__content{
         width: 100%;
         margin-bottom: 3vw;
@@ -199,14 +157,13 @@ body {
       width: 100%;
       margin-bottom: 32px;
     }
-    }
-@media (max-width: 700px){
-    
-      .numeration__wrapper{
+}
+@media (max-width: 700px){   
+    .numeration__wrapper {
         width: 100%;
         margin-top: 10%;
         text-align: left;
     }
-    }
+}
   
   

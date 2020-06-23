@@ -7,10 +7,6 @@ p {
   color: $primary-color;
 }
 
-.home__main-container {
-  padding: 100px 0;
-}
-
 .hero-info__wrapper {
   box-sizing: border-box;
   width: 50%;
@@ -164,6 +160,9 @@ p {
 
 .title__wrapper {
   position: relative;
+  .project-container & {
+    width: 80%;
+  }
 }
 
 
@@ -199,10 +198,6 @@ p {
 }
 
 @media (max-width: 1100px){
-  .max-bound {
-    margin: 0 auto;
-    width: 70vw;
-  }
   .hero-wrapper, .project__hero-wrapper {
     flex-wrap: wrap; 
   }
@@ -221,12 +216,6 @@ p {
 }
 
 @media (max-width: 800px) {
-  .max-bound {
-    width: 80vw;
-  }
-  .section-spacer.section-spacer--large {
-    margin-top: 100px;
-  }
   .hero-wrapper, .project__hero-wrapper {
     margin: 0 auto;
   }

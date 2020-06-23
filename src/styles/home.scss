@@ -11,7 +11,7 @@ p {
   box-sizing: border-box;
   width: 50%;
   text-align: left;
-  p, h3, h2 {
+  p, h3, h2:not(.h1) {
     opacity: 0;
     transform: translateY(25px);
     transition: opacity .7s, transform .5s;
@@ -19,7 +19,7 @@ p {
     will-change: transform, opacity;
   }
   .animations--started & {
-    p, h3, h2 {
+    p, h3, h2:not(.h1) {
       opacity: 1;
       transform: translateY(0);
     }

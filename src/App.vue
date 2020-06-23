@@ -3,22 +3,43 @@
     <div class="router__wave-transition"></div>
     <div class="router__wave-transition--looper"></div>
     <div class="max-bound">
-      <div class="home__main-container">
+      <div class="main-container" :class="{'main-container--not-home': $route.path != '/'}">
         <!-- <div class="home__outer-content">
           <div class="main-nav__toggle"></div>
           <div class="social"></div>
         </div> -->
-        <img class="logo" alt="Aura Bravo logo" src="../public/assets/img/Recurso1logo.png" />
-        <nav class="nav">
-          <router-link to="/about">About</router-link>
-          <span></span>
-          <router-link to="/contact">Contact</router-link>
-        </nav>
+        <header>
+          <img class="logo" alt="Aura Bravo logo" src="../public/assets/img/Recurso1logo.png" />
+          <div class="nav-menu__trigger" @click="openMenu" :class="{'nav-menu__trigger--triggered': isMenuOpened}"><span></span></div>
+          <nav class="nav" :class="[{'nav--opened': isMenuOpened}, {'nav--not-home': $route.path != '/'}]">
+            <router-link to="/contact">Contact</router-link>
+            <span></span>
+            <router-link to="/about">About</router-link>
+            <span v-if="$route.path != '/'"></span>
+            <router-link to="/" v-if="$route.path != '/'">Home</router-link>
+          </nav>
+        </header>
         <router-view />
       </div>
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  name: "App",
+  data() {
+    return {
+      isMenuOpened: false
+    }
+  },
+  methods: {
+    openMenu() {
+      this.isMenuOpened = !this.isMenuOpened;
+    }
+  },
+};
+</script>
 
 <style>
 #app {

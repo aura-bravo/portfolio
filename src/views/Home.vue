@@ -30,7 +30,6 @@
           class="home__project-wrapper"
           :class="{'home__project-wrapper--reverse': !index % 2 == 0}"
         >
-          <p class="home__project__extra-info">Diseño Web - 2020 - Dayvo Sistemas</p>
           <div
             class="home__project-image__wrapper section-image"
             :class="{'background-image__wrapper--opened': imageReleased == true}"
@@ -98,7 +97,7 @@ export default {
     sectionCatcher: debounce(function() {
       this.sections.forEach(section => {
         if (!section.classList.contains("scrolled__to")) {
-          if (window.scrollY > section.offsetTop - window.innerHeight / 1.5) {
+          if (window.scrollY > section.offsetTop - window.innerHeight / 1.2) {
             section.classList.add("scrolled__to");
             this.sectionAnimatedCount += 1;
           }

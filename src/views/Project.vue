@@ -1,8 +1,8 @@
 <style lang="scss" src="../styles/project.scss" scoped></style>
 <template>
   <div>
-    <div class="project-container" v-for="(project, index) of projectData" :key="project.id" :index="index">
-      <div class="project-wrapper" v-if="project.id == key">
+    <div class="project-container" v-for="(project, index, key) of projectData" :key="key">
+      <div class="project-wrapper" v-if="$route.path == `/${project.id}`">
         <transition name="fade">
           <section class="section-spacer section-spacer--large scrolled__to">
             <div class="hero-wrapper">  
@@ -86,6 +86,7 @@
 import store from "./../store/index";
 import Mixin from "../mixins/Mixin";
 import routerTransition from "../mixins/router-transition";
+import * as debounce from "lodash.debounce";
 export default {
   name: "Project",
   data() {
@@ -93,31 +94,32 @@ export default {
       projectData: this.$store.state.data,
       projectIndex: this.$store.state.projectIndex,
       imageReleased: false,
+      sections: undefined,
       store: store
     };
   },
   mixins: [Mixin, routerTransition],
   components: {},
   mounted() {
+    this.sections = document.querySelectorAll('section');
     this.releaseImage();
   },  
   methods: {
     releaseImage() {
       window.addEventListener("scroll", () => {
-        //this.sectionCatcher();
+        this.sectionCatcher();
       })
     },
-    sectionCatcher() {
-      for (let i = 0; i < this.$refs.projectSectionRef.length; i++) {
-        const element = this.$refs.projectSectionRef[i];
-        /* const projectNameText = element.querySelector(".home__project-info__wrapper h2").innerHTML; */
-        if (!element.classList.contains("scrolled__to-project")) {
-          if (window.scrollY > element.offsetTop - window.innerHeight / 2) {
-            element.classList.add("scrolled__to-project");
+    sectionCatcher: debounce(function() {
+      this.sections.forEach(section => {
+        if (!section.classList.contains("scrolled__to")) {
+          if (window.scrollY > section.offsetTop - window.innerHeight / 1.25) {
+            section.classList.add("scrolled__to");
+            this.sectionAnimatedCount += 1;
           }
         }
-      }
-    }
+      });
+    }, 50)
   },
 };
 </script>

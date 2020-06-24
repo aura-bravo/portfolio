@@ -62,7 +62,8 @@ p {
 
 @media (max-width: 1200px) {
   h1, .h1 {
-    font-size: 6vw
+    font-size: 6vw;
+    margin: 0 0 3vw 0;
   }
   .about h3, .about .h3 {
     font-size: 3.3vw;
@@ -101,7 +102,8 @@ p {
 
 @media (max-width: 1000px) {
   h1, .h1 {
-    font-size: 6.5vw
+    font-size: 6.5vw;
+    margin: 0 0 4vw 0;
   }
   h2, .h2 {
     font-size: 3.2vw;

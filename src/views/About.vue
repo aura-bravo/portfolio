@@ -17,10 +17,10 @@
           <div class="subsection-info__wrapper m3">
             <div class="subsection-info__content">
               <h3>Experience</h3>
-              <p>UX / UI Designer at Dayvo Sistemas<br>Medellín, Colombia<br><em>AGOSTO 2019 - JUNIO 2020</em></p>
-              <p>Designer at ORiGEN by Mary Rocío Pérez<br>Cali, Colombia<br><em>MARZO 2019 - MAYO 2020</em></p>
-              <p>Designer at Moises Hernández Design Studio<br>Mexico City, Mexico<br><em>ENERO 2018- JULIO 2018</em></p>
-              <p>Innlab assistant at Universidad Icesi<br>Cali, Colombia<br><em>JULIO 2017- DICEIMBRE 2017</em></p>
+              <p>UX / UI Designer at Dayvo Sistemas<br>Medellín, Colombia<br><em>AUGUST 2019 - JUNE 2020</em></p>
+              <p>Designer at ORiGEN by Mary Rocío Pérez<br>Cali, Colombia<br><em>MARCH 2019 - MAY 2020</em></p>
+              <p>Designer at Moises Hernández Design Studio<br>Mexico City, Mexico<br><em>JANUARY 2018- JULY 2018</em></p>
+              <p>Innlab assistant at Universidad Icesi<br>Cali, Colombia<br><em>JULY 2017- DECEMBER 2017</em></p>
             </div>
             <div class="subsection-info__content">
               <h3>Study and Honors</h3>

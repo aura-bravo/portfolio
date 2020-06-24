@@ -97,9 +97,6 @@ p {
   .hero-image__wrapper {
     animation-play-state: running;
   }
-  .home__project-line {
-    transform: scaleX(1);
-  }
   .hero-background-image {
     background-position: center;
   }
@@ -279,8 +276,9 @@ p {
     padding-top: 100%;
   }
   .home__project-image__wrapper {
-    width: calc(100% + 10vw);
-    margin-left: -10vw;
+    width: 100%;
+    margin-right: auto;
+    margin-left: -5vw;
     padding-top: 70%;
   }
   .home__project-number__wrapper {
@@ -296,7 +294,7 @@ p {
     padding-right: 0;
     .home__project-image__wrapper {
       margin-left: auto;
-      margin-right: -10vw;
+      margin-right: -5vw;
     }
     .home__project-info__wrapper {
       right: 0;

@@ -57,9 +57,9 @@ import scrollMeasureVue from "./mixins/scroll-measure.vue";
 export default {
   name: "App",
   mounted() {
-    if (this.$route.path != "/") {
+    /* if (this.$route.path != "/") {
       this.$router.push("/");
-    }
+    } */
     this.addEvents();
     this.routerTransition();
     this.init();

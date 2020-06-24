@@ -88,7 +88,7 @@ export default {
     this.routerTransition();
     setTimeout(() => {
       next();
-    }, 900);
+    }, 1400);
   },
 };
 </script>

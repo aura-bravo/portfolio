@@ -1,15 +1,25 @@
-
 <style lang="scss" src="../styles/contact.scss"></style>
 <template>
   <div class="contact">
-    <section class="section-spacer section-spacer--large scrolled__to" ref="sectionRef">
+    <section
+      class="section-spacer section-spacer--large scrolled__to"
+      ref="sectionRef"
+    >
       <div class="hero-wrapper">
         <div class="hero-info__wrapper">
           <h1 class="h1 title__wrapper">
             <div class="title-animation">Let's talk</div>
           </h1>
-          <p><a href="mailto:bravo.aura95@gmail.com" class="contact-info">bravo.aura95@gmail.com</a></p>
-          <p><a href="tel:+573148450663" class="contact-info">+57 314 845 0663</a></p> 
+          <p>
+            <a href="mailto:bravo.aura95@gmail.com" class="contact-info"
+              >bravo.aura95@gmail.com</a
+            >
+          </p>
+          <p>
+            <a href="tel:+573148450663" class="contact-info"
+              >+57 314 845 0663</a
+            >
+          </p>
         </div>
       </div>
     </section>
@@ -26,7 +36,7 @@ export default {
     this.routerTransition();
     setTimeout(() => {
       next();
-    }, 900);
+    }, 1400);
   },
-}
+};
 </script>

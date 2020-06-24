@@ -1,4 +1,5 @@
 <script>
+import * as debounce from "lodash.debounce";
 export default {
   mounted() {
     this.scrollMeasurer = document.querySelector(".scroll-measurer span");
@@ -21,7 +22,7 @@ export default {
       } else {
         this.scrollMeasurer.style.transform = "scale(1)";
       }
-      console.log(this.bottomScroll);
+      this.resizeEvent();
     },
     setHeight() {
       this.scrollMeasurer.style.transform = `scaleY(${this.mathMapping(
@@ -38,6 +39,11 @@ export default {
         ((n - start1) / (stop1 - start1)) * (stop2 - start2) + start2;
       return newval;
     },
+    resizeEvent: debounce(function() {
+      window.addEventListener("resize", (event) => {
+        this.init();
+      });
+    }, 200),
   },
 };
 </script>

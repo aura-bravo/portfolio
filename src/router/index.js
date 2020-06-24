@@ -34,14 +34,8 @@ const routes = [
 ];
 
 const router = new VueRouter({
-  mode: "history",
+  mode: "hash",
   routes,
 });
-/* router.beforeEach((to, from, next) => {
-  // More code ...
-  setTimeout(() => {
-    next();
-  }, 3000);
-}); */
 
 export default router;

@@ -10,20 +10,13 @@
       <p>Done</p>
     </div>
     <div class="max-bound">
-      <div
-        class="main-container"
-        :class="{ 'main-container--not-home': $route.path != '/' }"
-      >
+      <div class="main-container" :class="{ 'main-container--not-home': $route.path != '/' }">
         <!-- <div class="home__outer-content">
           <div class="main-nav__toggle"></div>
           <div class="social"></div>
-        </div> -->
+        </div>-->
         <header>
-          <img
-            class="logo"
-            alt="Aura Bravo logo"
-            src="../public/assets/img/Recurso1logo.png"
-          />
+          <img class="logo" alt="Aura Bravo logo" src="../public/assets/img/Recurso1logo.png" />
           <div
             class="nav-menu__trigger"
             @click="openMenu"
@@ -33,10 +26,7 @@
           >
             <span></span>
           </div>
-          <nav
-            class="nav"
-            :class="{ 'nav--opened': $store.state.isMenuOpened }"
-          >
+          <nav class="nav" :class="{ 'nav--opened': $store.state.isMenuOpened }">
             <router-link to="/contact">Contact</router-link>
             <span></span>
             <router-link to="/about">About</router-link>
@@ -54,6 +44,7 @@
 import { gsap } from "gsap";
 import routerTransitionVue from "./mixins/router-transition.vue";
 import scrollMeasureVue from "./mixins/scroll-measure.vue";
+import * as debounce from "lodash.debounce";
 export default {
   name: "App",
   mounted() {
@@ -62,14 +53,14 @@ export default {
     } */
     this.addEvents();
     this.routerTransition();
-    this.init();
+    //this.init();
   },
   data() {
     return {
       rawX: Number,
       rawY: Number,
       halfW: Number,
-      halfH: Number,
+      halfH: Number
     };
   },
   mixins: [routerTransitionVue, scrollMeasureVue],
@@ -83,9 +74,10 @@ export default {
       }
     },
     addEvents() {
-      window.addEventListener("mousemove", (event) => {
+      window.addEventListener("mousemove", event => {
         this.followPointer(event);
       });
+      this.resizeEvent();
     },
     followPointer(e) {
       this.rawX = e.clientX;
@@ -94,21 +86,27 @@ export default {
       this.halfH = window.innerHeight / 2 - window.scrollY;
       gsap.to(this.$refs.circleRef, 0.5, {
         x: this.rawX - this.halfW,
-        y: this.rawY - this.halfH,
+        y: this.rawY - this.halfH
       });
       gsap.to(this.$refs.pointer, 0, {
         x: this.rawX - this.halfW,
-        y: this.rawY - this.halfH,
+        y: this.rawY - this.halfH
       });
     },
+    resizeEvent: debounce(function() {
+      window.addEventListener("resize", event => {
+        this.init();
+        this.resetMenu();
+      });
+    }, 200)
   },
   watch: {
     "$route.path": function() {
       setTimeout(() => {
         this.init();
-      }, 250);
-    },
-  },
+      }, 700);
+    }
+  }
 };
 </script>
 

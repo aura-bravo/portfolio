@@ -1,9 +1,6 @@
 <script>
 export default {
   mounted() {
-    if (window.history.length < 1) {
-      this.routerTransition();
-    }
     this.resetMenu();
   },
   methods: {

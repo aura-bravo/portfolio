@@ -3,7 +3,7 @@ export default {
   mounted() {
     setTimeout(() => {
       this.breakAllTitles();
-    }, 550);
+    }, 450);
   },
   methods: {
     breakAllTitles() {
@@ -48,8 +48,8 @@ export default {
     startAnimations() {
       setTimeout(() => {
         document.body.classList.add("animations--started");
-      }, 500);
-    }
-  }
+      }, 450);
+    },
+  },
 };
 </script>

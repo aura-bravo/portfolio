@@ -1,8 +1,11 @@
 <script>
-import * as debounce from "lodash.debounce";
 export default {
   mounted() {
     this.scrollMeasurer = document.querySelector(".scroll-measurer span");
+    this.resizeEvent();
+    setTimeout(() => {
+      this.init();
+    }, 1000);
   },
   data() {
     return {
@@ -10,40 +13,45 @@ export default {
       minValue: 0,
       maxValue: 1,
       topScroll: 0,
-      bottomScroll: undefined,
+      bottomScroll: undefined
     };
   },
   methods: {
     init() {
-      this.bottomScroll = document.body.clientHeight - window.innerHeight;
-      if (this.$route.path != "/contact") {
-        console.log("holi");
-        window.requestAnimationFrame(() => this.setHeight());
-      } else {
-        this.scrollMeasurer.style.transform = "scale(1)";
-      }
-      this.resizeEvent();
+      this.resetValues();
+      this.addScrollEvent();
     },
     setHeight() {
-      this.scrollMeasurer.style.transform = `scaleY(${this.mathMapping(
+      const mapResult = this.mathMapping(
         window.scrollY,
         this.topScroll,
         this.bottomScroll,
         this.minValue,
         this.maxValue
-      )})`;
-      window.requestAnimationFrame(() => this.setHeight());
+      );
+      this.scrollMeasurer.style.transform = `scaleY(${mapResult})`;
+    },
+    resetValues() {
+      if (this.$route.path != "/contact") {
+        this.scrollMeasurer.style.transform = "scale(0)";
+      } else {
+        this.scrollMeasurer.style.transform = "scale(1)";
+      }
+      this.bottomScroll =
+        document.documentElement.scrollHeight - window.innerHeight;
     },
     mathMapping(n, start1, stop1, start2, stop2) {
       const newval =
         ((n - start1) / (stop1 - start1)) * (stop2 - start2) + start2;
       return newval;
     },
-    resizeEvent: debounce(function() {
-      window.addEventListener("resize", (event) => {
-        this.init();
+    addScrollEvent() {
+      window.addEventListener("scroll", () => {
+        if (this.$route.path != "/contact") {
+          window.requestAnimationFrame(() => this.setHeight());
+        }
       });
-    }, 200),
-  },
+    }
+  }
 };
 </script>

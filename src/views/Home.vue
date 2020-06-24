@@ -1,7 +1,10 @@
 <style lang="scss" src="../styles/home.scss"></style>
 <template>
   <div>
-    <section class="section-spacer section-spacer--large scrolled__to" ref="sectionRef">
+    <section
+      class="section-spacer section-spacer--large scrolled__to"
+      ref="sectionRef"
+    >
       <div class="hero-wrapper">
         <div class="hero-info__wrapper">
           <h1 class="title__wrapper">
@@ -29,23 +32,25 @@
         <div class="home__project-router">
           <div
             class="home__project-wrapper"
-            :class="{'home__project-wrapper--reverse': !(index % 2 == 0)}"
+            :class="{ 'home__project-wrapper--reverse': !(index % 2 == 0) }"
           >
             <div
               class="home__project-image__wrapper section-image"
-              :class="{'background-image__wrapper--opened': imageReleased == true}"
+              :class="{
+                'background-image__wrapper--opened': imageReleased == true,
+              }"
             >
               <div
                 class="home__project-background-image"
-                :style="{backgroundImage: 'url(' + data.previewImage + ')'}"
+                :style="{ backgroundImage: 'url(' + data.previewImage + ')' }"
               ></div>
             </div>
             <div class="home__project-info__wrapper">
               <h2 class="h1 title__wrapper">
-                <div class="title-animation">{{data.title}}</div>
+                <div class="title-animation">{{ data.title }}</div>
               </h2>
               <div class="home__project-number__wrapper">
-                <p class="home__project-number">0{{index + 1}}</p>
+                <p class="home__project-number">0{{ index + 1 }}</p>
                 <div class="home__project-line"></div>
               </div>
             </div>
@@ -72,7 +77,6 @@ export default {
       projectData: this.$store.state.data,
       imageReleased: false,
       store: store,
-      sectionAnimatedCount: 0
     };
   },
   mixins: [Mixin, routerTransition, sectionCatcher],
@@ -86,14 +90,5 @@ export default {
       next();
     }, 900);
   },
-  methods: {
-    /* setProject(index) {
-      this.routerTransition();
-      setTimeout(() => {
-        this.$store.commit("setProject", index);
-        router.push(this.projectData[index].id);
-      }, 750);
-    }, */
-  }
 };
 </script>

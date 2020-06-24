@@ -16,7 +16,6 @@ export default {
         if (!section.classList.contains("scrolled__to")) {
           if (window.scrollY > section.offsetTop - window.innerHeight / 1.2) {
             section.classList.add("scrolled__to");
-            this.sectionAnimatedCount += 1;
           }
         }
       });

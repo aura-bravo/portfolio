@@ -63,6 +63,14 @@ export default {
     this.addEvents();
     this.routerTransition();
   },
+  data() {
+    return {
+      rawX: Number,
+      rawY: Number,
+      halfW: Number,
+      halfH: Number,
+    };
+  },
   mixins: [routerTransitionVue, scrollMeasureVue],
   methods: {
     openMenu() {
@@ -79,17 +87,17 @@ export default {
       });
     },
     followPointer(e) {
-      const rawX = e.clientX;
-      const rawY = e.clientY;
-      const halfW = window.innerWidth / 2;
-      const halfH = window.innerHeight / 2 - window.scrollY;
+      this.rawX = e.clientX;
+      this.rawY = e.clientY;
+      this.halfW = window.innerWidth / 2;
+      this.halfH = window.innerHeight / 2 - window.scrollY;
       gsap.to(this.$refs.circleRef, 0.5, {
-        x: rawX - halfW,
-        y: rawY - halfH,
+        x: this.rawX - this.halfW,
+        y: this.rawY - this.halfH,
       });
       gsap.to(this.$refs.pointer, 0, {
-        x: rawX - halfW,
-        y: rawY - halfH,
+        x: this.rawX - this.halfW,
+        y: this.rawY - this.halfH,
       });
     },
   },

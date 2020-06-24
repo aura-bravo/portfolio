@@ -1,6 +1,5 @@
 <script>
 export default {
-  created() {},
   mounted() {
     this.scrollMeasurer = document.querySelector(".scroll-measurer span");
     this.bottomScroll = document.body.clientHeight - window.innerHeight;

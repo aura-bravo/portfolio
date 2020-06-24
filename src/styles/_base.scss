@@ -191,7 +191,7 @@ body.no-scroll {
   .project__hero-wrapper {
     flex-wrap: wrap;
   }
-/*   .home__project-info__wrapper {
+  /*   .home__project-info__wrapper {
     width: 50%;
   } */
 }
@@ -292,7 +292,7 @@ body.no-scroll {
   .nav {
     position: fixed;
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
     top: 0;
     left: 0;
     justify-content: center;
@@ -321,7 +321,7 @@ body.no-scroll {
   .section-spacer.section-spacer--large {
     margin-top: 100px;
     &:first-of-type {
-      margin-top: 100px;
+      margin-top: 40px;
     }
   }
 

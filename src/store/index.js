@@ -8,10 +8,11 @@ export default new Vuex.Store({
   state: {
     data: data,
     projectIndex: 0,
+    isMenuOpened: false
   },
   mutations: {
-    setProject(state, payload) {
-      state.projectIndex = payload;
+    toggleMenu(state, payload) {
+      state.isMenuOpened = payload;
     },
   },
   actions: {},

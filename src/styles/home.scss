@@ -2,6 +2,10 @@ body {
   margin: 0;
 }
 
+a {
+  text-decoration: none;
+}
+
 h1,
 p {
   color: $primary-color;
@@ -11,21 +15,24 @@ p {
   box-sizing: border-box;
   width: 50%;
   text-align: left;
-  p, h3, h2:not(.h1) {
+  p,
+  h3,
+  h2:not(.h1) {
     opacity: 0;
     transform: translateY(25px);
-    transition: opacity .7s, transform .5s;
+    transition: opacity 0.7s, transform 0.5s;
     transition-delay: 1.5s;
     will-change: transform, opacity;
   }
   .animations--started & {
-    p, h3, h2:not(.h1) {
+    p,
+    h3,
+    h2:not(.h1) {
       opacity: 1;
       transform: translateY(0);
     }
   }
 }
-
 
 .home__project-wrapper {
   position: relative;
@@ -48,7 +55,8 @@ p {
   }
 }
 .home__project-router {
-  &:hover, &:focus {
+  &:hover,
+  &:focus {
     .home__project-background-image {
       transform: rotate(5deg) scale(1.2);
     }
@@ -62,7 +70,8 @@ p {
   /* transition: clip-path .7s cubic-bezier(.74,.01,.32,1); */
 }
 
-.home__project-image__wrapper, .hero-image__wrapper {
+.home__project-image__wrapper,
+.hero-image__wrapper {
   animation: project-preview-animation;
   animation-fill-mode: both;
   animation-duration: 1.4s;
@@ -73,14 +82,25 @@ p {
 }
 
 .scrolled__to {
-  .home__project-image__wrapper, .hero-image__wrapper {
+  .home__project-image__wrapper {
     animation-play-state: running;
-
   }
   .home__project-line {
     transform: scaleX(1);
   }
-  .home__project-background-image, .hero-background-image {
+  .home__project-background-image {
+    background-position: center;
+  }
+}
+
+.animations--started {
+  .hero-image__wrapper {
+    animation-play-state: running;
+  }
+  .home__project-line {
+    transform: scaleX(1);
+  }
+  .hero-background-image {
     background-position: center;
   }
 }
@@ -100,7 +120,8 @@ p {
   }
 }
 
-.home__project-background-image, .hero-background-image {
+.home__project-background-image,
+.hero-background-image {
   position: absolute;
   top: 0;
   left: 0;
@@ -110,10 +131,10 @@ p {
   background-repeat: no-repeat;
   background-position: -200px center;
   transform: rotate(0) scale(1);
-  transition: background-position .7s .9s ease, transform .5s ease-out;
+  transition: background-position 0.7s 0.9s ease, transform 0.5s ease-out;
   will-change: background-position, transform;
 }
-.home__project-info__wrapper{
+.home__project-info__wrapper {
   box-sizing: border-box;
   position: absolute;
   top: 0;
@@ -121,19 +142,19 @@ p {
   width: 40%;
   text-align: right;
 }
-.home__project-number__wrapper{
+.home__project-number__wrapper {
   position: relative;
   display: flex;
   flex-direction: row-reverse;
   align-items: center;
 }
-.home__project-line{
+.home__project-line {
   width: 35%;
   margin-right: 5%;
   border-bottom: 1px solid #000;
   transform-origin: left;
   transform: scaleX(0);
-  transition: transform .8s 1s;
+  transition: transform 0.8s 1s;
 }
 
 .home__project-wrapper.home__project-wrapper--reverse {
@@ -150,9 +171,6 @@ p {
   }
 }
 
-
-
-
 //// ANIMATIONS
 .title-animation {
   position: relative;
@@ -165,7 +183,6 @@ p {
   }
 }
 
-
 .title-animation {
   position: relative;
   opacity: 0;
@@ -175,20 +192,20 @@ p {
   display: inline-block;
   opacity: 0;
   transform: translateY(50%);
-  transition: transform .3s ease-out, opacity .3s;
+  transition: transform 0.3s ease-out, opacity 0.3s;
 }
 
-.animations--started .hero-info__wrapper .title-animation, .scrolled__to .home__project-info__wrapper .title-animation {
+.animations--started .hero-info__wrapper .title-animation,
+.scrolled__to .home__project-info__wrapper .title-animation {
   opacity: 1;
   span span {
     opacity: 1;
     transform: translateY(0);
-  } 
+  }
 }
 
-
 //************************* RESPONSIVE ****************************//
-@media (max-width: 1200px){
+@media (max-width: 1200px) {
   .home__project__extra-info {
     left: -8.5vw;
     .home__project-wrapper--reverse & {
@@ -197,11 +214,12 @@ p {
   }
 }
 
-@media (max-width: 1100px){
-  .hero-wrapper, .project__hero-wrapper {
-    flex-wrap: wrap; 
+@media (max-width: 1100px) {
+  .hero-wrapper,
+  .project__hero-wrapper {
+    flex-wrap: wrap;
   }
-  .home__project-info__wrapper{
+  .home__project-info__wrapper {
     width: 50%;
   }
 }
@@ -216,7 +234,8 @@ p {
 }
 
 @media (max-width: 800px) {
-  .hero-wrapper, .project__hero-wrapper {
+  .hero-wrapper,
+  .project__hero-wrapper {
     margin: 0 auto;
   }
   .hero-info__wrapper {
@@ -298,4 +317,3 @@ p {
     }
   }
 }
-

@@ -1,9 +1,9 @@
 <script>
 export default {
-  created() {
+  mounted() {
     setTimeout(() => {
       this.breakAllTitles();
-    }, 100);
+    }, 550);
   },
   methods: {
     breakAllTitles() {

@@ -4,21 +4,44 @@
     <div class="pointer" ref="pointer"></div>
     <div class="router__wave-transition"></div>
     <div class="router__wave-transition--looper"></div>
+    <div class="scroll-measurer">
+      <p>Scroll</p>
+      <span></span>
+      <p>Done</p>
+    </div>
     <div class="max-bound">
-      <div class="main-container" :class="{'main-container--not-home': $route.path != '/'}">
+      <div
+        class="main-container"
+        :class="{ 'main-container--not-home': $route.path != '/' }"
+      >
         <!-- <div class="home__outer-content">
           <div class="main-nav__toggle"></div>
           <div class="social"></div>
         </div> -->
         <header>
-          <img class="logo" alt="Aura Bravo logo" src="../public/assets/img/Recurso1logo.png" />
-          <div class="nav-menu__trigger" @click="openMenu" :class="{'nav-menu__trigger--triggered': isMenuOpened}"><span></span></div>
-          <nav class="nav" :class="[{'nav--opened': isMenuOpened}, {'nav--not-home': $route.path != '/'}]">
+          <img
+            class="logo"
+            alt="Aura Bravo logo"
+            src="../public/assets/img/Recurso1logo.png"
+          />
+          <div
+            class="nav-menu__trigger"
+            @click="openMenu"
+            :class="{
+              'nav-menu__trigger--triggered': $store.state.isMenuOpened,
+            }"
+          >
+            <span></span>
+          </div>
+          <nav
+            class="nav"
+            :class="{ 'nav--opened': $store.state.isMenuOpened }"
+          >
             <router-link to="/contact">Contact</router-link>
             <span></span>
             <router-link to="/about">About</router-link>
-            <span v-if="$route.path != '/'"></span>
-            <router-link to="/" v-if="$route.path != '/'">Home</router-link>
+            <span></span>
+            <router-link to="/">Home</router-link>
           </nav>
         </header>
         <router-view />
@@ -29,27 +52,29 @@
 
 <script>
 import { gsap } from "gsap";
+import routerTransitionVue from "./mixins/router-transition.vue";
+import scrollMeasureVue from "./mixins/scroll-measure.vue";
 export default {
   name: "App",
-  data() {
-    return {
-      isMenuOpened: false,
-    }
-  },
   mounted() {
+    if (this.$route.path != "/") {
+      this.$router.push("/");
+    }
     this.addEvents();
+    this.routerTransition();
   },
+  mixins: [routerTransitionVue, scrollMeasureVue],
   methods: {
     openMenu() {
-      this.isMenuOpened = !this.isMenuOpened;
-      if (this.isMenuOpened) {
-        document.body.classList.add('no-scroll');
+      this.$store.commit("toggleMenu", !this.$store.state.isMenuOpened);
+      if (this.$store.state.isMenuOpened) {
+        document.body.classList.add("no-scroll");
       } else {
-        document.body.classList.remove('no-scroll');
+        document.body.classList.remove("no-scroll");
       }
     },
     addEvents() {
-      window.addEventListener('mousemove', event => {
+      window.addEventListener("mousemove", (event) => {
         this.followPointer(event);
       });
     },
@@ -60,14 +85,14 @@ export default {
       const halfH = window.innerHeight / 2 - window.scrollY;
       gsap.to(this.$refs.circleRef, 0.5, {
         x: rawX - halfW,
-        y: rawY - halfH
+        y: rawY - halfH,
       });
       gsap.to(this.$refs.pointer, 0, {
         x: rawX - halfW,
-        y: rawY - halfH
+        y: rawY - halfH,
       });
-    }
-  }
+    },
+  },
 };
 </script>
 

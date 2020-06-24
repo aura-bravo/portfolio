@@ -37,13 +37,11 @@ const router = new VueRouter({
   mode: "history",
   routes,
 });
-router.beforeEach((to, from, next) => {
+/* router.beforeEach((to, from, next) => {
   // More code ...
   setTimeout(() => {
-    window.scrollTo(0, 0);
-    document.body.classList.remove("animations--started");
     next();
-  }, 1000);
-});
+  }, 3000);
+}); */
 
 export default router;

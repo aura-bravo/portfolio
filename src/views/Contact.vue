@@ -17,10 +17,16 @@
 </template>
 
 <script>
-  import Mixin from "../mixins/Mixin";
-  import routerTransition from "../mixins/router-transition";
-  export default {
-    name: "Contact",
-    mixins: [Mixin, routerTransition],
-  }
+import Mixin from "../mixins/Mixin";
+import routerTransition from "../mixins/router-transition";
+export default {
+  name: "Contact",
+  mixins: [Mixin, routerTransition],
+  beforeRouteLeave(to, from, next) {
+    this.routerTransition();
+    setTimeout(() => {
+      next();
+    }, 900);
+  },
+}
 </script>

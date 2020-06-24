@@ -21,35 +21,37 @@
     <section
       class="section-spacer section-spacer--large"
       ref="sectionRef"
-      v-for="(data, index, key) in projectData"
+      v-for="(data, index) in projectData"
       :index="index"
-      :key="key"
+      :key="data.id"
     >
-      <div class="home__project-router" @click="setProject(index)">
-        <div
-          class="home__project-wrapper"
-          :class="{'home__project-wrapper--reverse': !(index % 2 == 0)}"
-        >
+      <router-link :to="`/${data.id}`">
+        <div class="home__project-router">
           <div
-            class="home__project-image__wrapper section-image"
-            :class="{'background-image__wrapper--opened': imageReleased == true}"
+            class="home__project-wrapper"
+            :class="{'home__project-wrapper--reverse': !(index % 2 == 0)}"
           >
             <div
-              class="home__project-background-image"
-              :style="{backgroundImage: 'url(' + data.previewImage + ')'}"
-            ></div>
-          </div>
-          <div class="home__project-info__wrapper">
-            <h2 class="h1 title__wrapper">
-              <div class="title-animation">{{data.title}}</div>
-            </h2>
-            <div class="home__project-number__wrapper">
-              <p class="home__project-number">0{{index + 1}}</p>
-              <div class="home__project-line"></div>
+              class="home__project-image__wrapper section-image"
+              :class="{'background-image__wrapper--opened': imageReleased == true}"
+            >
+              <div
+                class="home__project-background-image"
+                :style="{backgroundImage: 'url(' + data.previewImage + ')'}"
+              ></div>
+            </div>
+            <div class="home__project-info__wrapper">
+              <h2 class="h1 title__wrapper">
+                <div class="title-animation">{{data.title}}</div>
+              </h2>
+              <div class="home__project-number__wrapper">
+                <p class="home__project-number">0{{index + 1}}</p>
+                <div class="home__project-line"></div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      </router-link>
     </section>
   </div>
 </template>
@@ -59,10 +61,10 @@
 /* import Project from '../components/Project.vue' */
 //import styles from '../styles/home.scss'
 import store from "./../store/index";
-import router from "./../router/index";
-import * as debounce from "lodash.debounce";
+/* import router from "./../router/index"; */
 import Mixin from "../mixins/Mixin";
 import routerTransition from "../mixins/router-transition";
+import sectionCatcher from "../mixins/section-catcher";
 export default {
   name: "Home",
   data() {
@@ -70,40 +72,28 @@ export default {
       projectData: this.$store.state.data,
       imageReleased: false,
       store: store,
-      sections: undefined,
       sectionAnimatedCount: 0
     };
   },
-  mixins: [Mixin, routerTransition],
+  mixins: [Mixin, routerTransition, sectionCatcher],
   components: {},
   mounted() {
-    this.releaseImage();
-    //this.breakAllTitles();
-    this.sections = document.querySelectorAll("section");
+    this.$nextTick(() => this.addScrolledClass());
+  },
+  beforeRouteLeave(to, from, next) {
+    this.routerTransition();
+    setTimeout(() => {
+      next();
+    }, 900);
   },
   methods: {
-    setProject(index) {
+    /* setProject(index) {
       this.routerTransition();
-      this.$store.commit("setProject", index);
-      router.push(this.projectData[index].id);
-    },
-    releaseImage() {
-      window.addEventListener("scroll", () => {
-        if (this.sectionAnimatedCount < this.sections.length) {
-          this.sectionCatcher();
-        }
-      });
-    },
-    sectionCatcher: debounce(function() {
-      this.sections.forEach(section => {
-        if (!section.classList.contains("scrolled__to")) {
-          if (window.scrollY > section.offsetTop - window.innerHeight / 1.2) {
-            section.classList.add("scrolled__to");
-            this.sectionAnimatedCount += 1;
-          }
-        }
-      });
-    }, 100)
+      setTimeout(() => {
+        this.$store.commit("setProject", index);
+        router.push(this.projectData[index].id);
+      }, 750);
+    }, */
   }
 };
 </script>

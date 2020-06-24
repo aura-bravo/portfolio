@@ -1,7 +1,10 @@
 <script>
 export default {
-  created() {
-    this.routerTransition();
+  mounted() {
+    if (window.history.length < 1) {
+      this.routerTransition();
+    }
+    this.resetMenu();
   },
   methods: {
     routerTransition() {
@@ -15,9 +18,28 @@ export default {
         waveLoop.classList.add("router__wave-transition--looper--looping");
         setTimeout(() => {
           waveLoop.classList.remove("router__wave-transition--looper--looping");
-        }, 2500);
+        }, 3000);
       }
-    }
-  }
+      setTimeout(() => {
+        this.startAnimation();
+      }, 900);
+    },
+    resetMenu() {
+      document.body.classList.remove("no-scroll");
+      const menuItem = document.querySelector(".nav");
+      const navTrigger = document.querySelector(".nav-menu__trigger");
+      if (menuItem.classList.contains("nav--opened")) {
+        menuItem.classList.remove("nav--opened");
+        navTrigger.classList.remove("nav-menu__trigger--triggered");
+        this.$store.commit("toggleMenu", false);
+      }
+    },
+    startAnimation() {
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+      }, 500);
+      document.body.classList.remove("animations--started");
+    },
+  },
 };
 </script>

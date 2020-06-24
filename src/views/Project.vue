@@ -86,40 +86,25 @@
 import store from "./../store/index";
 import Mixin from "../mixins/Mixin";
 import routerTransition from "../mixins/router-transition";
-import * as debounce from "lodash.debounce";
+import sectionCatcher from "../mixins/section-catcher";
 export default {
   name: "Project",
   data() {
     return {
       projectData: this.$store.state.data,
       projectIndex: this.$store.state.projectIndex,
-      imageReleased: false,
-      sections: undefined,
       store: store
     };
   },
-  mixins: [Mixin, routerTransition],
-  components: {},
   mounted() {
-    this.sections = document.querySelectorAll('section');
-    this.releaseImage();
-  },  
-  methods: {
-    releaseImage() {
-      window.addEventListener("scroll", () => {
-        this.sectionCatcher();
-      })
-    },
-    sectionCatcher: debounce(function() {
-      this.sections.forEach(section => {
-        if (!section.classList.contains("scrolled__to")) {
-          if (window.scrollY > section.offsetTop - window.innerHeight / 1.25) {
-            section.classList.add("scrolled__to");
-            this.sectionAnimatedCount += 1;
-          }
-        }
-      });
-    }, 50)
+    this.$nextTick(() => this.addScrolledClass());
+  },
+  mixins: [Mixin, routerTransition, sectionCatcher],
+  beforeRouteLeave(to, from, next) {
+    this.routerTransition();
+    setTimeout(() => {
+      next();
+    }, 900);
   },
 };
 </script>

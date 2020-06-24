@@ -2,8 +2,6 @@
 export default {
   mounted() {
     this.scrollMeasurer = document.querySelector(".scroll-measurer span");
-    this.bottomScroll = document.body.clientHeight - window.innerHeight;
-    window.requestAnimationFrame(() => this.setHeight());
   },
   data() {
     return {
@@ -15,6 +13,16 @@ export default {
     };
   },
   methods: {
+    init() {
+      this.bottomScroll = document.body.clientHeight - window.innerHeight;
+      if (this.$route.path != "/contact") {
+        console.log("holi");
+        window.requestAnimationFrame(() => this.setHeight());
+      } else {
+        this.scrollMeasurer.style.transform = "scale(1)";
+      }
+      console.log(this.bottomScroll);
+    },
     setHeight() {
       this.scrollMeasurer.style.transform = `scaleY(${this.mathMapping(
         window.scrollY,

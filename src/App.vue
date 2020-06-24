@@ -62,6 +62,7 @@ export default {
     }
     this.addEvents();
     this.routerTransition();
+    this.init();
   },
   data() {
     return {
@@ -99,6 +100,13 @@ export default {
         x: this.rawX - this.halfW,
         y: this.rawY - this.halfH,
       });
+    },
+  },
+  watch: {
+    "$route.path": function() {
+      setTimeout(() => {
+        this.init();
+      }, 250);
     },
   },
 };

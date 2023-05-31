@@ -10,23 +10,33 @@
       <p>Done</p>
     </div>
     <div class="max-bound">
-      <div class="main-container" :class="{ 'main-container--not-home': $route.path != '/' }">
+      <div
+        class="main-container"
+        :class="{ 'main-container--not-home': $route.path != '/' }"
+      >
         <!-- <div class="home__outer-content">
           <div class="main-nav__toggle"></div>
           <div class="social"></div>
         </div>-->
         <header>
-          <img class="logo" alt="Aura Bravo logo" src="../public/assets/img/Recurso1logo.png" />
+          <img
+            class="logo"
+            alt="Aura Bravo logo"
+            src="../public/assets/img/Recurso1logo.png"
+          />
           <div
             class="nav-menu__trigger"
             @click="openMenu"
             :class="{
-              'nav-menu__trigger--triggered': $store.state.isMenuOpened,
+              'nav-menu__trigger--triggered': $store.state.isMenuOpened
             }"
           >
             <span></span>
           </div>
-          <nav class="nav" :class="{ 'nav--opened': $store.state.isMenuOpened }">
+          <nav
+            class="nav"
+            :class="{ 'nav--opened': $store.state.isMenuOpened }"
+          >
             <router-link to="/contact">Contact</router-link>
             <span></span>
             <router-link to="/about">About</router-link>

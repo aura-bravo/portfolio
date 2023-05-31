@@ -1,5 +1,7 @@
-body {
+body,
+html {
   overflow-x: hidden;
+  background-color: $background-color;
 }
 
 body.no-scroll {
@@ -33,7 +35,7 @@ body.no-scroll {
   width: 5px;
   height: 5px;
   border-radius: 50%;
-  background-color: rgb(0, 0, 0s);
+  background-color: rgb(0, 0, 0);
   z-index: 9999;
   &.hovering {
     background-color: rgb(255, 255, 255);
@@ -118,7 +120,7 @@ body.no-scroll {
   }
   a {
     text-decoration: none;
-    font-family: "Poppins";
+    font-family: 'Poppins';
     color: $primary-color;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -166,7 +168,7 @@ body.no-scroll {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  background-image: url("../../public/assets/img/ed1.jpg");
+  background-image: url('../../public/assets/img/ed1.jpg');
   .project-container & {
     background-size: contain;
   }
@@ -249,7 +251,7 @@ body.no-scroll {
     }
     &::before,
     &::after {
-      content: "";
+      content: '';
       display: block;
       position: absolute;
       left: 0;
@@ -302,7 +304,7 @@ body.no-scroll {
     height: 100%;
     transform: translateX(-100%);
     overflow: hidden;
-    background-color: #f5f5f1;
+    background-color: $background-color;
     transition: transform 0.4s;
     z-index: 9998;
     &.nav--opened {

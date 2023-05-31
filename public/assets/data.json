@@ -1,13 +1,24 @@
 [
   {
     "id": "yoga-isaac-ambel",
-    "title":"Yoga Isaac Ambel",
+    "title": "Yoga Isaac Ambel",
     "description": "Isaac Ambel Yoga is a Yoga instructor based in Badajoz, Spain. The objective of the page was to share his trajectory as well as his approach to yoga, and to give information about the classes he impart in two different yoga centers in the city. The client wanted his web page to reflect peace and calm, also to show yoga both as a physical and a spiritual activity, but always keeping a modern and clean look.",
-    "previewImage":"./assets/img/moc2.jpg",
+    "challengeStrong": "Embody the museum’s identity, essence and vision, through a thoughtfully curated and visually appealing interface.",
+    "challenge1": "How can we make it easier for the museum communication team to maintain the site up to date?",
+    "challenge2": "How can we envision the museum’s essence in a user interface?",
+    "phrases": [
+      "Competitive analysis",
+      "Visual audit of the current site",
+      "Define visual digital guidelines",
+      "User Interface design",
+      "Prototyping"
+    ],
+    "result": "We aimed to harness color as a storytelling element, intentionally utilizing it to differentiate the main sections. From carefully selecting color palettes and typography to developing flexible designs, our primary objective was to enhance legibility while emphasizing function, clarity, and simplicity. For that we created a digital component system capable of effectively supporting the museum's regular content, including exhibitions, events, educational programs, and more. Furthermore, we purposefully leverage the lightness of white space, enabling the design to breathe and ensuring that the works of art assumed the role of the true protagonists.",
+    "previewImage": "./assets/img/moc2.jpg",
     "mainImage": "./assets/img/moc12.jpg",
     "coverImage": "./assets/img/Recurso2logo.jpg",
     "colors": ["#BBBECC", "#7994BF", "#83CDCE", "#262C30"],
-    "fonts":  ["Poppins"],
+    "fonts": ["Poppins"],
     "collageImage1": "../assets/img/MOC1.jpg",
     "collageImage2": "../assets/img/moc6.jpg",
     "collageImage3": "../assets/img/moc3.jpg",
@@ -16,13 +27,13 @@
   },
   {
     "id": "infinite-love",
-    "title":"Infinite Love",
+    "title": "Infinite Love",
     "description": "Infinite Love is a Jewelery brand based in Trujillo Perú, inspired by brands like Cartier, Graff and Gucci. The client wanted an elegant but modern page.  A very clean and clear website that let the product take protagonism and transmit luxuriousness. The colors were choosen according to the logo and the typographies give the design a delicate and sophisticated touch.",
-    "previewImage":"./assets/img/moc10.jpg",
+    "previewImage": "./assets/img/moc10.jpg",
     "mainImage": "../assets/img/moc14.jpg",
     "coverImage": "../assets/img/moc11.jpg",
     "colors": ["#FFFFFF", "#D2B246", "#7E7E7E", "#000000"],
-    "fonts":  ["Playfair Display", "Belleza"],
+    "fonts": ["Playfair Display", "Belleza"],
     "collageImage1": "../assets/img/moc10.jpg",
     "collageImage2": "../assets/img/moc8.jpg",
     "collageImage3": "../assets/img/moc9.jpg",
@@ -31,17 +42,17 @@
   },
   {
     "id": "llama-path",
-    "title":"Llama Path",
+    "title": "Llama Path",
     "description": "Llama Path is a professional tour operator based in Cusco, Peru. They offer a variety of treks and tours all over Peru, including the Inca Trail and a variety of alternative treks to Machu Picchu. They wanted to keep the structure and colors from their old website but giving a much modern and cleaner look.",
-    "previewImage":"./assets/img/llama_path_1.jpg",
+    "previewImage": "./assets/img/llama_path_1.jpg",
     "mainImage": "../assets/img/llama_path_1.jpg",
     "coverImage": "../assets/img/portada_llama_path.jpg",
     "colors": ["#FFFFFF", "#D91111", "#FCB040", "#C0C0C0"],
-    "fonts":  ["Poppins"],
+    "fonts": ["Poppins"],
     "collageImage1": "../assets/img/llama_path_1.jpg",
     "collageImage2": "../assets/img/llama_path_2.jpg",
     "collageImage3": "../assets/img/llama_path_3.jpg",
     "collageImage4": "../assets/img/llama_path_4.jpg",
     "fullHomePage": "../assets/img/full_home_llama_path.jpg"
   }
- ]
+]

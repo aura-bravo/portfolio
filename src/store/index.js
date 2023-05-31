@@ -13,8 +13,8 @@ export default new Vuex.Store({
   mutations: {
     toggleMenu(state, payload) {
       state.isMenuOpened = payload;
-    },
+    }
   },
   actions: {},
-  modules: {},
+  modules: {}
 });

@@ -32,12 +32,12 @@
         <div class="home__project-router">
           <div
             class="home__project-wrapper"
-            :class="{ 'home__project-wrapper--reverse': !(index % 2 == 0) }"
+            :class="{ 'home__project-wrapper--reverse': !(index % 2 === 0) }"
           >
             <div
               class="home__project-image__wrapper section-image"
               :class="{
-                'background-image__wrapper--opened': imageReleased == true,
+                'background-image__wrapper--opened': imageReleased === true
               }"
             >
               <div
@@ -76,7 +76,7 @@ export default {
     return {
       projectData: this.$store.state.data,
       imageReleased: false,
-      store: store,
+      store: store
     };
   },
   mixins: [Mixin, routerTransition, sectionCatcher],
@@ -89,6 +89,6 @@ export default {
     setTimeout(() => {
       next();
     }, 1400);
-  },
+  }
 };
 </script>

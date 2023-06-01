@@ -11,62 +11,62 @@
             <div class="title-animation">About me</div>
           </h1>
           <h2>
-            I'm Aura Bravo, an Industrial Designer passionate about interface
-            design.
+            I am an Interface Designer who strongly believes in the
+            transformative power of design as a catalyst for positive change in
+            people's lives.
           </h2>
           <p>
-            I lived in Mexico City for six months, where I worked as a design
-            intern in Moises Hernandez Design Studio. After finishing my
-            internship I became more intrested in digital interfaces, it’s
-            design and development.
+            I enjoy being involved in the different stages of the creative
+            process, from ideation and conceptualization to the materialization
+            and delivery of a product that meets the needs of the end-users and
+            the business.
           </p>
           <p>
-            After graduating College in 2018 I dedicated myself to do two things
-            I love, studying and learning new things, and traveling. Then I
-            moved to Medellín where I work as an UI Designer.
+            I have a keen eye for detail and a strong understanding of user
+            experience design principles. I am comfortable conducting user
+            research, creating wireframes and prototypes, designing interfaces,
+            and collaborating with cross-functional teams such as engineers and
+            product managers.
           </p>
           <p>
-            I love challenging myself and be constantly exploring and learning
-            new stuff.
+            I’m a proactive professional committed to continuous learning and
+            self improving. I am always seeking to step up my skills and stay
+            up-to-date on the latest design trends and technologies.
           </p>
           <div class="subsection-info__wrapper m3">
             <div class="subsection-info__content">
               <h3>Experience</h3>
+              <p>Ilógica<br />Medellín, Colombia<br />APR 2022 - PRESENT</p>
               <p>
-                UX / UI Designer at Dayvo Sistemas<br />Medellín, Colombia<br /><em
-                  >AUGUST 2019 - JUNE 2020</em
-                >
+                Bancolombia<br />Medellín, Colombia<br />
+                SEP 2021 - APR 2022
               </p>
               <p>
-                Designer at ORiGEN by Mary Rocío Pérez<br />Cali, Colombia<br /><em
-                  >MARCH 2019 - MAY 2020</em
-                >
+                Multiplica Talent for Bancolombia<br />Medellín, Colombia<br />
+                OCT 2020 - SEP 2021
               </p>
+              <p>Eykkon<br />Medellín, Colombia<br />OCT 2020 - SEP 2017</p>
               <p>
-                Designer at Moises Hernández Design Studio<br />Mexico City,
-                Mexico<br /><em>JANUARY 2018- JULY 2018</em>
-              </p>
-              <p>
-                Innlab assistant at Universidad Icesi<br />Cali, Colombia<br /><em
-                  >JULY 2017- DECEMBER 2017</em
-                >
+                Dayvo Sistemas<br />Medellín, Colombia<br />
+                AUG 2019 - JUN 2020
               </p>
             </div>
             <div class="subsection-info__content">
               <h3>Study and Honors</h3>
               <p>
-                Industrial Designer<br />universidad Icesi / Cali, Colombia<br /><em
-                  >2013 - 2018</em
-                >
+                Icesi University, Cali, Colombia<br />Bachelor of Design (BDes)
+                in Industrial Design
+                <br />
+                >2013 - 2018
               </p>
-              <p>Graduated with honors<br /><em>MAGNA CUM LAUDE</em></p>
-              <p>Honor Roll<br /><em>2013 - 2018</em></p>
+              <p>College Honors - Magna Cum Laude<br />GPA: 4.53/5.00</p>
               <p>
-                Honor Scholarship<br /><em
-                  >I, III, IV, V, VII and X semesters</em
-                >
+                Honor Roll student for five years, and 6 times winner of the
+                honor roll scholarship.
               </p>
-              <p>Cambridge English Scale Score <em> C1</em></p>
+              <p>
+                English advanced C1 - Cambridge
+              </p>
             </div>
           </div>
         </div>
@@ -81,29 +81,26 @@
           <div class="subsection-info__wrapper">
             <div class="subsection-info__content">
               <h3>Skills and Tools</h3>
-              <p>PHOTOSHOP | ILLUSTRATOR | INDESIGN | AFTER EFECTS</p>
-              <p>HTML | CSS | JAVASCRIPT</p>
-              <p>SOLIDWORKS | RHINOCEROS | VRAY</p>
-              <p>XD | FIGMA | INVISION</p>
-              <p>UX / UI DESIGN | USER RESEARCH | GRAPHIC DESIGN</p>
+              <p>
+                UX / UI DESIGN | USER RESEARCH |VISUAL DESIGN | ACCESSIBILITY
+              </p>
+              <p>FIGMA | XD | SKETCH</p>
+              <p>PHOTOSHOP | ILLUSTRATOR | AFTER EFFECTS</p>
             </div>
             <div class="subsection-info__content">
               <h3>Extracurriculars</h3>
               <p>
                 Member of IxDA Medellín, a member-supported organization
-                dedicated to the discipline of interaction design.<br /><em
-                  >2020</em
-                >
+                dedicated to the discipline of interaction design.<br />
+                2020
               </p>
-              <p>Archery National team<br /><em>2013 - 2017</em></p>
+              <p>Archery National team<br />2013 - 2017</p>
               <p>Team Champion:</p>
               <ul>
-                <li>Archery World Cup 2016<br /><em>Medellín, Colombia</em></li>
-                <li>Archery World Cup 2015<br /><em>Medellín, Colombia</em></li>
-                <li>
-                  Archery World Championships 2013<br /><em>Belek, Turkey</em>
-                </li>
-                <li>Juegos Bolivarianos 2013<br /><em>Trujillo, Perú</em></li>
+                <li>Archery World Cup 2016<br />Medellín, Colombia</li>
+                <li>Archery World Cup 2015<br />Medellín, Colombia</li>
+                <li>Archery World Championships 2013<br />Belek, Turkey</li>
+                <li>Juegos Bolivarianos 2013<br />Trujillo, Perú</li>
               </ul>
             </div>
           </div>
@@ -120,10 +117,13 @@
             <div class="subsection-hobbies__content">
               <h3>Hobbies</h3>
               <p>
-                Besides archery - that was a huge part of my life - I love
-                climbing, reading, drawing and coffee. Also one of my big
-                passions is traveling and, although I'm not an expert I enjoy
-                very much photographing all those experiences and places.
+                Apart from archery, which has been a significant part of my
+                life, I have a deep passion for climbing, reading, digital
+                drawing, and savoring a good cup of coffee. Additionally,
+                traveling is one of my great passions, and while I may not
+                consider myself an expert, capturing the essence of those
+                experiences and places through photography brings me immense
+                joy.
               </p>
             </div>
             <div class="about__images-grid">
@@ -150,11 +150,11 @@
 </template>
 
 <script>
-import Mixin from "../mixins/Mixin";
-import routerTransition from "../mixins/router-transition";
-import sectionCatcher from "../mixins/section-catcher";
+import Mixin from '../mixins/Mixin';
+import routerTransition from '../mixins/router-transition';
+import sectionCatcher from '../mixins/section-catcher';
 export default {
-  name: "About",
+  name: 'About',
   mixins: [Mixin, routerTransition, sectionCatcher],
   mounted() {
     this.$nextTick(() => this.addScrolledClass());
@@ -164,6 +164,6 @@ export default {
     setTimeout(() => {
       next();
     }, 1400);
-  },
+  }
 };
 </script>

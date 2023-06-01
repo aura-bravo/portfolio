@@ -8,12 +8,13 @@
       <div class="hero-wrapper">
         <div class="hero-info__wrapper">
           <h1 class="title__wrapper">
-            <div class="title-animation">Aura Bravo.</div>
+            <div class="title-animation">Hi there,</div>
           </h1>
           <p>
-            Hi, my name is Aura Bravo. I'm an Industrial Designer passionate
-            about digital media and interfaces, it's design and development.
-            Here is some of my work.
+            I'm Aura, a designer with a little bit of a coffee addiction, a
+            passion for traveling and a thriving interest in creating
+            experiences and stories that can connect with people trough visually
+            catching interfaces.
           </p>
         </div>
         <div class="hero-image__wrapper">

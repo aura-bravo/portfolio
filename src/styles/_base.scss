@@ -108,7 +108,7 @@ body.no-scroll {
   align-items: center;
   height: 5vw;
   top: 50%;
-  left: -16rem;
+  left: -14rem;
   transform: translateY(-50%) rotate(-90deg);
   span {
     display: block;
@@ -120,10 +120,12 @@ body.no-scroll {
   }
   a {
     text-decoration: none;
-    font-family: 'Poppins';
+    font-family: "Poppins";
     color: $primary-color;
     text-transform: uppercase;
     letter-spacing: 1px;
+    font-size: 16px;
+    font-weight: 600;
   }
   a,
   span {

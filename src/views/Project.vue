@@ -44,7 +44,7 @@
       .project__right-aligned.project__right-aligned--left
         img.project__right-content(:src="project.image3")
     .project__content-section.project__content-section--big-space
-      img.project__image.project__image--big(:src="project.finalImages")
+      img.project__image.project__image--big(:src="project.finalImage")
 
 </template>
 
@@ -77,7 +77,9 @@ export default {
   },
   computed: {
     project() {
-      return this.projectData[this.projectIndex];
+      return this.projectData.filter(
+        element => element.id === this.$route.params.name
+      )[0];
     }
   }
 };

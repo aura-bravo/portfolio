@@ -42,7 +42,7 @@
             >
               <div
                 class="home__project-background-image"
-                :style="{ backgroundImage: 'url(' + data.previewImage + ')' }"
+                :style="{ backgroundImage: 'url(' + data.mainImage + ')' }"
               ></div>
             </div>
             <div class="home__project-info__wrapper">
@@ -62,16 +62,12 @@
 </template>
 
 <script>
-// @ is an alias to /src
-/* import Project from '../components/Project.vue' */
-//import styles from '../styles/home.scss'
-import store from "./../store/index";
-/* import router from "./../router/index"; */
-import Mixin from "../mixins/Mixin";
-import routerTransition from "../mixins/router-transition";
-import sectionCatcher from "../mixins/section-catcher";
+import store from './../store/index';
+import Mixin from '../mixins/Mixin';
+import routerTransition from '../mixins/router-transition';
+import sectionCatcher from '../mixins/section-catcher';
 export default {
-  name: "Home",
+  name: 'Home',
   data() {
     return {
       projectData: this.$store.state.data,

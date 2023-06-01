@@ -4,7 +4,15 @@
   }
 
   &__content-section {
-    margin: 54px 0;
+    margin: 64px 0;
+
+    &--small-space {
+      margin-top: 120px;
+    }
+
+    &--big-space {
+      margin-top: 120px;
+    }
 
     &:first-of-type {
       margin-top: 0;

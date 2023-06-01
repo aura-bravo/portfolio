@@ -3,48 +3,48 @@
   .project__container
     .project__content-section
       .project__right-aligned
-        img.project__right-content(:src="project.coverImage")
+        img.project__right-content(:src="project.mainImage")
     h1.project__title {{project.title}}
     .project__content-section
       .project__right-aligned
-        p.project__right-content {{project.description}}
+        p.project__right-content {{project.intro}}
     .project__content-section
-      img.project__image.project__image--big(:src="project.coverImage")
+      img.project__image.project__image--big(:src="project.contextImage")
     .project__content-section
       h3.project__title Challenge
       .project__content-divided
         .project__content-divided-block
           p 
-            strong.project__content-challenge-strong {{project.challengeStrong}}
+            strong.project__content-challenge-strong {{project.challenge}}
         .project__content-divided-block
-          p.project__content-challenge-text {{project.challenge1}}
-          p.project__content-challenge-text {{project.challenge2}}
-    .project__content-section
+          p.project__content-challenge-text {{project.question1}}
+          p.project__content-challenge-text {{project.question2}}
+    .project__content-section.project__image--big
       .project__text-carousel-container
         .project__text-carousel
-          .project__text-carousel-phrase(v-for="phrase of project.phrases") {{phrase}}
+          .project__text-carousel-phrase(v-for="phrase of project.tasks") {{phrase}}
       .project__text-carousel-container
         .project__text-carousel
-          .project__text-carousel-phrase(v-for="phrase of project.phrases") {{phrase}}
+          .project__text-carousel-phrase(v-for="phrase of project.tasks") {{phrase}}
     .project__content-section
-      img.project__image.project__image--big(:src="project.coverImage")
+      img.project__image.project__image--big(:src="project.processImage")
     .project__content-section
       h3.project__title Result
       .project__right-aligned
         p.project__right-content {{project.result}}
     .project__content-section.project__content-section--centered
-      img.project__image(:src="project.coverImage")
+      img.project__image(:src="project.largeImage")
     .project__content-section
       .project__right-aligned.project__right-aligned--left
-        img.project__right-content(:src="project.coverImage")
+        img.project__right-content(:src="project.image1")
     .project__content-section
       .project__right-aligned
-        img.project__right-content(:src="project.coverImage")
+        img.project__right-content(:src="project.image2")
     .project__content-section
       .project__right-aligned.project__right-aligned--left
-        img.project__right-content(:src="project.coverImage")
-    .project__content-section
-      img.project__image.project__image--big(:src="project.coverImage")
+        img.project__right-content(:src="project.image3")
+    .project__content-section.project__content-section--big-space
+      img.project__image.project__image--big(:src="project.finalImages")
 
 </template>
 

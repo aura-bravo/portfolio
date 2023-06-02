@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" :class="{ 'is-contact-page': $route.name === 'Contact' }">
     <div class="pointer-circle" ref="circleRef"></div>
     <div class="pointer" ref="pointer"></div>
     <div class="router__wave-transition"></div>
@@ -51,18 +51,19 @@
 </template>
 
 <script>
-import { gsap } from "gsap";
-import routerTransitionVue from "./mixins/router-transition.vue";
-import scrollMeasureVue from "./mixins/scroll-measure.vue";
-import * as debounce from "lodash.debounce";
+import { gsap } from 'gsap';
+import routerTransitionVue from './mixins/router-transition.vue';
+import scrollMeasureVue from './mixins/scroll-measure.vue';
+import * as debounce from 'lodash.debounce';
 export default {
-  name: "App",
+  name: 'App',
   mounted() {
     /* if (this.$route.path != "/") {
       this.$router.push("/");
     } */
     this.addEvents();
     this.routerTransition();
+    console.log(this.$route.name);
     //this.init();
   },
   data() {
@@ -76,15 +77,15 @@ export default {
   mixins: [routerTransitionVue, scrollMeasureVue],
   methods: {
     openMenu() {
-      this.$store.commit("toggleMenu", !this.$store.state.isMenuOpened);
+      this.$store.commit('toggleMenu', !this.$store.state.isMenuOpened);
       if (this.$store.state.isMenuOpened) {
-        document.body.classList.add("no-scroll");
+        document.body.classList.add('no-scroll');
       } else {
-        document.body.classList.remove("no-scroll");
+        document.body.classList.remove('no-scroll');
       }
     },
     addEvents() {
-      window.addEventListener("mousemove", event => {
+      window.addEventListener('mousemove', event => {
         this.followPointer(event);
       });
       this.resizeEvent();
@@ -104,14 +105,14 @@ export default {
       });
     },
     resizeEvent: debounce(function() {
-      window.addEventListener("resize", event => {
+      window.addEventListener('resize', event => {
         this.init();
         this.resetMenu();
       });
     }, 200)
   },
   watch: {
-    "$route.path": function() {
+    '$route.path': function() {
       setTimeout(() => {
         this.init();
       }, 700);
@@ -122,7 +123,7 @@ export default {
 
 <style>
 #app {
-  font-family: "Poppins", Helvetica, Arial, sans-serif;
+  font-family: 'Poppins', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #414040;
@@ -152,6 +153,7 @@ li {
   margin: 0 auto;
   max-width: 1440px;
   width: 70vw;
+  overflow: hidden;
 }
 
 .logo {
@@ -162,7 +164,7 @@ li {
   transform: translateX(-50%);
 }
 .logo::before {
-  content: "";
+  content: '';
   display: block;
   position: relative;
   width: 100%;

@@ -96,7 +96,6 @@ export default {
       });
     },
     handleClick() {
-      console.log('hola');
       this.$router.replace({ path: '/' });
     },
     openMenu() {

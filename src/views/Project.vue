@@ -36,8 +36,8 @@
   .project__content-section.project__content-section--big-space
     h3.project__title Result
   section.project__content-section
-    .project__right-aligned(v-for="projectResult of project.result")
-      p.project__right-content.subsection-info__paragraph {{projectResult}}
+    .project__right-aligned.project__result-text(v-for="projectResult of project.result")
+      p.project__right-content {{projectResult}}
   section.project__content-section.project__content-section--centered
     .image__wrapper.image__wrapper--vertical
       img.image__element.project__image(:src="project.largeImage")
@@ -58,8 +58,8 @@
       img.image__element.project__image.project__image--big(:src="project.finalImage")
   
   .project__navigation-wrapper
-    router-link.project__navigation-link.h2.h2--italic(:to="prevProject.split(' ').join('').split('-').join('').toLowerCase()") {{ prevProject }}
-    router-link.project__navigation-link.h2.h2--italic(:to="nextProject.split(' ').join('').split('-').join('').toLowerCase()") {{ nextProject }}
+    router-link.linked.project__navigation-link.h2.h2--italic(:to="prevProject.split(' ').join('').split('-').join('').toLowerCase()") {{ prevProject }}
+    router-link.linked.project__navigation-link.h2.h2--italic(:to="nextProject.split(' ').join('').split('-').join('').toLowerCase()") {{ nextProject }}
 </template>
 
 <script>

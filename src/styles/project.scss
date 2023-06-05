@@ -103,6 +103,14 @@
     }
   }
 
+  &__result-text {
+    margin-bottom: 24px;
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+
   &__text-carousel-container {
     position: relative;
     width: 150vw;

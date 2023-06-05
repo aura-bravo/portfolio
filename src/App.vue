@@ -1,7 +1,9 @@
 <template>
   <div id="app" :class="{ 'is-contact-page': $route.name === 'Contact' }">
-    <div class="pointer-circle" ref="circleRef"></div>
-    <div class="pointer" ref="pointer"></div>
+    <div class="pointer__wrapper">
+      <div class="pointer-circle" ref="circleRef"></div>
+      <div class="pointer" ref="pointer"></div>
+    </div>
     <div class="router__wave-transition"></div>
     <div class="router__wave-transition--looper"></div>
     <div class="scroll-measurer">
@@ -39,11 +41,11 @@
             class="nav"
             :class="{ 'nav--opened': $store.state.isMenuOpened }"
           >
-            <router-link to="/contact">Contact</router-link>
+            <router-link class="linked" to="/contact">Contact</router-link>
             <span></span>
-            <router-link to="/about">About</router-link>
+            <router-link class="linked" to="/about">About</router-link>
             <span></span>
-            <router-link to="/">Home</router-link>
+            <router-link class="linked" to="/">Home</router-link>
           </nav>
         </header>
         <router-view />
@@ -62,6 +64,7 @@ export default {
   mounted() {
     this.addEvents();
     this.routerTransition();
+    this.mountMouseOverEvent();
   },
   data() {
     return {
@@ -73,6 +76,25 @@ export default {
   },
   mixins: [routerTransitionVue, scrollMeasure],
   methods: {
+    mountMouseOverEvent() {
+      const circle = document.querySelector('.pointer__wrapper');
+      document.body.addEventListener('mouseover', event => {
+        event.stopPropagation();
+        if (!event.target.classList.contains('linked')) {
+          return;
+        } else {
+          circle.classList.add('hovering');
+        }
+      });
+      document.body.addEventListener('mouseout', event => {
+        event.stopPropagation();
+        if (!event.target.classList.contains('linked')) {
+          return;
+        } else {
+          circle.classList.remove('hovering');
+        }
+      });
+    },
     handleClick() {
       console.log('hola');
       this.$router.replace({ path: '/' });

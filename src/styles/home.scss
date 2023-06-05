@@ -150,7 +150,30 @@ p {
   top: 0;
   right: 5vw;
   text-align: right;
+
+  .title-animation {
+
+    > span {
+      mix-blend-mode: hue;
+      span {
+        color: white;
+      }
+    }
+  }
+
+  
+
+  .title-animation.title-animation--copy {
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    > span {
+      mix-blend-mode: difference;
+    }
+  }
 }
+
 .home__project-number__wrapper {
   position: relative;
   display: flex;
@@ -175,10 +198,13 @@ p {
     left: 5vw;
     right: unset;
     text-align: left;
+    width: 80%;
 
-    .title-animation > span {
-      mix-blend-mode: multiply;
+    .title-animation.title-animation--copy {
+      right: auto;
+      left: 0;
     }
+
   }
   .home__project-number__wrapper {
     flex-direction: row;
@@ -186,16 +212,6 @@ p {
 }
 
 //// ANIMATIONS
-.title-animation {
-  position: relative;
-}
-
-.title__wrapper {
-  position: relative;
-  .project-container & {
-    width: 80%;
-  }
-}
 
 .title-animation {
   position: relative;

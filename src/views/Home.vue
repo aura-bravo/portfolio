@@ -50,6 +50,9 @@
             <div class="home__project-info__wrapper">
               <h2 class="h1 title__wrapper">
                 <div class="title-animation">{{ data.title }}</div>
+                <div class="title-animation title-animation--copy">
+                  {{ data.title }}
+                </div>
               </h2>
               <div class="home__project-number__wrapper">
                 <p class="home__project-number">0{{ index + 1 }}</p>
@@ -82,18 +85,6 @@ export default {
   mounted() {
     this.$nextTick(() => {
       this.addScrolledClass();
-      const hoverElements = document.querySelectorAll('.linked');
-      const circle = document.querySelectorAll('.pointer-circle');
-      console.log(hoverElements[0]);
-      hoverElements[0].addEventListener('mouseover', event => {
-        console.log(event.target);
-        event.stopPropagation();
-        if (!event.target.classList.contains('linked')) {
-          return;
-        } else {
-          circle.style.width = '200px';
-        }
-      });
     });
     this.breakAllTitles();
     this.startAnimations();

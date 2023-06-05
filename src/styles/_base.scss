@@ -12,22 +12,44 @@ body.no-scroll {
   opacity: 0;
 }
 
+.linked * {
+  pointer-events: none;
+}
+
+.pointer__wrapper {
+
+  &.hovering {
+    .pointer-circle::before {
+      transform: scale(0.5);
+    }
+    .pointer::before {
+      transform: translateX(-1px) scale(10);
+    }
+  }
+}
+
 .pointer-circle {
   position: absolute;
   top: calc(50% - 21px);
   left: calc(50% - 21px);
   width: 42px;
   height: 42px;
-  background-color: transparent;
-  border: 1px solid rgb(0, 0, 0);
-  border-radius: 50%;
-  will-change: transform;
   pointer-events: none;
   z-index: 9999;
-  &.hovering {
-    background-color: rgb(0, 0, 0);
-    width: rem(50);
-    height: rem(50);
+  
+  &::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 50%;
+    transform: scale(1);
+    transition: transform 0.3s;
   }
 }
 
@@ -41,12 +63,18 @@ body.no-scroll {
   border-radius: 50%;
   background-color: rgb(0, 0, 0);
   z-index: 9999;
-  &.hovering {
-    background-color: rgb(255, 255, 255);
-    width: rem(10);
-    height: rem(10);
-    top: 50%;
-    left: 50%;
+  &::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    border-radius: 50%;
+    transform: scale(1) translateX(0);
+    transition: transform 0.3s;
   }
 }
 
@@ -205,6 +233,7 @@ body.no-scroll {
   }
 
   &--vertical {
+    pointer-events: none;
     max-width: 664px;
     margin: 0 auto;
     transform: translateX(0) translateY(-101%);
@@ -299,6 +328,12 @@ body.no-scroll {
       left: auto;
       transform: none;
     }
+  }
+  * {
+    cursor: inherit;
+  }
+  .pointer__wrapper {
+    display: none;
   }
   .nav-menu__trigger {
     position: absolute;

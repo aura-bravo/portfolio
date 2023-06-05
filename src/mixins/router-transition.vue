@@ -32,7 +32,7 @@ export default {
       }
     },
     startAnimation() {
-      window.scrollTo(0, 0);
+      window.scrollTo({ left: 0, top: 0, behavior: 'smooth' });
       setTimeout(() => {
         this.$store.commit('toggleProjectVisibility', true);
       }, 500);

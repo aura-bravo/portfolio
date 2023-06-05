@@ -32,6 +32,10 @@ export default {
       }
     },
     startAnimation() {
+      const pointer = document.querySelector('.pointer__wrapper');
+      if (pointer.classList.contains('hovering')) {
+        pointer.classList.remove('hovering');
+      }
       window.scrollTo({ left: 0, top: 0, behavior: 'smooth' });
       setTimeout(() => {
         this.$store.commit('toggleProjectVisibility', true);

@@ -21,7 +21,11 @@
           <div class="social"></div>
         </div>-->
         <header>
-          <div class="logo__wrapper" @click="handleClick">
+          <div
+            class="logo__wrapper"
+            @click="handleClick"
+            v-if="!$store.state.transitioning"
+          >
             <img
               class="logo"
               alt="Aura Bravo logo"
@@ -48,7 +52,12 @@
             <router-link class="linked" to="/">Home</router-link>
           </nav>
         </header>
-        <router-view />
+        <div
+          class="content__container"
+          :class="{ transitioning: $store.state.transitioning }"
+        >
+          <router-view />
+        </div>
       </div>
     </div>
   </div>

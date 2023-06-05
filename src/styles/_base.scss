@@ -28,6 +28,15 @@ body.no-scroll {
   }
 }
 
+.content__container {
+  opacity: 1;
+  transition: 0.2s;
+
+  &.transitioning {
+    opacity: 0;
+  }
+}
+
 .pointer-circle {
   position: absolute;
   top: calc(50% - 21px);

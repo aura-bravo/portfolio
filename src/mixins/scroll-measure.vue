@@ -62,10 +62,8 @@ export default {
     addScrollEvent(funcToExecute) {
       window.addEventListener('scroll', () => {
         if (this.$route.path != '/contact') {
-          window.requestAnimationFrame(() => {
-            this.setHeight();
-            if (funcToExecute) funcToExecute();
-          });
+          this.setHeight();
+          if (funcToExecute) funcToExecute();
         }
       });
     }

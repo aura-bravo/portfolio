@@ -7,6 +7,10 @@ p {
   color: $primary-color;
 }
 
+.about {
+  overflow: hidden;
+}
+
 .about ul {
   list-style-type: circle;
   padding-inline-start: 40px;

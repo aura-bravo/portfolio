@@ -9,7 +9,8 @@ export default new Vuex.Store({
     data: data,
     projectIndex: 0,
     isMenuOpened: false,
-    showProject: true
+    showProject: true,
+    transitioning: false
   },
   mutations: {
     toggleMenu(state, payload) {
@@ -17,6 +18,9 @@ export default new Vuex.Store({
     },
     toggleProjectVisibility(state, payload) {
       state.showProject = payload;
+    },
+    toggleTransitionState(state, payload) {
+      state.transitioning = payload;
     }
   },
   actions: {},

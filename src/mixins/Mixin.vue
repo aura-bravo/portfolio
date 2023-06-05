@@ -48,7 +48,6 @@ export default {
       letterDiv.style.transitionDelay = delayFactor + 's';
     },
     startAnimations() {
-      //this.breakAllTitles();
       this.restartAnimations();
       setTimeout(() => {
         document.body.classList.add('animations--started');

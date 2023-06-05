@@ -26,7 +26,7 @@
       :index="index"
       :key="data.id"
     >
-      <router-link :to="`/${data.id}`" class="linked">
+      <router-link :to="`/${data.id}`" class="linked linked--home-project">
         <div class="home__project-router">
           <div
             class="home__project-wrapper"

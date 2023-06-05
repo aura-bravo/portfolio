@@ -1,10 +1,7 @@
 <style lang="scss" src="../styles/home.scss"></style>
 <template>
   <div>
-    <section
-      class="section-spacer section-spacer--large scrolled__to"
-      ref="sectionRef"
-    >
+    <section class="section-spacer section-spacer--large" ref="sectionRef">
       <div class="hero-wrapper">
         <div class="hero-info__wrapper">
           <h1 class="title__wrapper">
@@ -29,7 +26,7 @@
       :index="index"
       :key="data.id"
     >
-      <router-link :to="`/${data.id}`">
+      <router-link :to="`/${data.id}`" class="linked">
         <div class="home__project-router">
           <div
             class="home__project-wrapper"
@@ -43,7 +40,11 @@
             >
               <div
                 class="home__project-background-image"
-                :style="{ backgroundImage: 'url(' + data.mainImage + ')' }"
+                :style="{ backgroundImage: 'url(' + data.mainImageColor + ')' }"
+              ></div>
+              <div
+                class="home__project-background-image home__project-background-image--black"
+                :style="{ backgroundImage: 'url(' + data.mainImageBlack + ')' }"
               ></div>
             </div>
             <div class="home__project-info__wrapper">
@@ -79,7 +80,23 @@ export default {
   mixins: [Mixin, routerTransition, sectionCatcher],
   components: {},
   mounted() {
-    this.$nextTick(() => this.addScrolledClass());
+    this.$nextTick(() => {
+      this.addScrolledClass();
+      const hoverElements = document.querySelectorAll('.linked');
+      const circle = document.querySelectorAll('.pointer-circle');
+      console.log(hoverElements[0]);
+      hoverElements[0].addEventListener('mouseover', event => {
+        console.log(event.target);
+        event.stopPropagation();
+        if (!event.target.classList.contains('linked')) {
+          return;
+        } else {
+          circle.style.width = '200px';
+        }
+      });
+    });
+    this.breakAllTitles();
+    this.startAnimations();
   },
   beforeRouteLeave(to, from, next) {
     this.routerTransition();

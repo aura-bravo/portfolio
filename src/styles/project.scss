@@ -1,6 +1,12 @@
 .project {
   &__container {
+    transition: opacity 0.3s;
     padding-top: 82px;
+    transition: opacity 0.3s 0.4s;
+
+    &--hidden {
+      opacity: 0;
+    }
   }
 
   &__content-section {
@@ -135,6 +141,64 @@
       height: 6px;
       background-color: black;
       border-radius: 50%;
+    }
+  }
+
+  &__navigation-wrapper {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding-bottom: 80px;
+    padding-top: 24px;
+    border-top: 1px solid #131313;
+
+    .project__navigation-link {
+      position: relative;
+      padding-left: 44px;
+
+      &::before, &::after {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 0;
+      }
+
+      &::after {
+        width: 10px;
+        height: 10px;
+        border-width: 2px;
+        border-color: #131313;
+        border-right: 0;
+        border-top: 0;
+        border-style: solid;
+        transform-origin: left bottom;
+        transform: translateY(calc(-100% + 1px)) rotate(45deg);
+      }
+      
+      &::before {
+        width: 35px;
+        height: 2px;
+        background-color: #131313;
+      }
+      
+      &:last-of-type {
+        padding-left: 0;
+        padding-right: 44px;
+        
+        &::before, &::after {
+          left: auto;
+          right: 0;
+        }
+        &::after {
+          border-right: 2px solid;
+          border-top: 0;
+          border-bottom: 2px solid;
+          border-left: 0;
+          transform-origin: right bottom;
+          transform: translateY(calc(-100% + 1px)) rotate(-45deg);
+        }
+      }
     }
   }
 }

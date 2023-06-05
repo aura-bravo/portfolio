@@ -1,8 +1,7 @@
 <script>
 export default {
   mounted() {
-    this.scrollMeasurer = document.querySelector(".scroll-measurer span");
-    this.resizeEvent();
+    this.scrollMeasurer = document.querySelector('.scroll-measurer span');
     setTimeout(() => {
       this.init();
     }, 1000);
@@ -22,33 +21,51 @@ export default {
       this.addScrollEvent();
     },
     setHeight() {
+      this.bottomScroll =
+        document.documentElement.scrollHeight - window.innerHeight;
       const mapResult = this.mathMapping(
         window.scrollY,
         this.topScroll,
         this.bottomScroll,
         this.minValue,
-        this.maxValue
+        this.maxValue,
+        true
       );
       this.scrollMeasurer.style.transform = `scaleY(${mapResult})`;
     },
     resetValues() {
-      if (this.$route.path != "/contact") {
-        this.scrollMeasurer.style.transform = "scale(0)";
+      if (this.$route.path != '/contact') {
+        this.scrollMeasurer.style.transform = 'scale(0)';
       } else {
-        this.scrollMeasurer.style.transform = "scale(1)";
+        this.scrollMeasurer.style.transform = 'scale(1)';
       }
       this.bottomScroll =
         document.documentElement.scrollHeight - window.innerHeight;
     },
-    mathMapping(n, start1, stop1, start2, stop2) {
+    mathMapping(n, start1, stop1, start2, stop2, withinBounds) {
       const newval =
         ((n - start1) / (stop1 - start1)) * (stop2 - start2) + start2;
-      return newval;
+      if (!withinBounds) {
+        return newval;
+      }
+      if (start2 < stop2) {
+        return this.constrain(newval, start2, stop2);
+      } else {
+        return this.constrain(newval, stop2, start2);
+      }
     },
-    addScrollEvent() {
-      window.addEventListener("scroll", () => {
-        if (this.$route.path != "/contact") {
-          window.requestAnimationFrame(() => this.setHeight());
+
+    constrain(n, low, high) {
+      return Math.max(Math.min(n, high), low);
+    },
+
+    addScrollEvent(funcToExecute) {
+      window.addEventListener('scroll', () => {
+        if (this.$route.path != '/contact') {
+          window.requestAnimationFrame(() => {
+            this.setHeight();
+            if (funcToExecute) funcToExecute();
+          });
         }
       });
     }

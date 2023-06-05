@@ -23,6 +23,11 @@ h2,
   margin: 0 0 3vw 0;
   line-height: 1;
   letter-spacing: 0px;
+
+  &--italic {
+    font-weight: 400;
+    font-style: italic;
+  }
 }
 
 h3 {

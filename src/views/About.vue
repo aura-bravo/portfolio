@@ -168,6 +168,8 @@ export default {
   mixins: [Mixin, routerTransition, sectionCatcher],
   mounted() {
     this.$nextTick(() => this.addScrolledClass());
+    this.breakAllTitles();
+    this.startAnimations();
   },
   beforeRouteLeave(to, from, next) {
     this.routerTransition();

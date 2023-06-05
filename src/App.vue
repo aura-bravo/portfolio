@@ -19,11 +19,13 @@
           <div class="social"></div>
         </div>-->
         <header>
-          <img
-            class="logo"
-            alt="Aura Bravo logo"
-            src="../public/assets/img/Recurso1logo.png"
-          />
+          <div class="logo__wrapper" @click="handleClick">
+            <img
+              class="logo"
+              alt="Aura Bravo logo"
+              src="../public/assets/img/Recurso1logo.png"
+            />
+          </div>
           <div
             class="nav-menu__trigger"
             @click="openMenu"
@@ -53,18 +55,13 @@
 <script>
 import { gsap } from 'gsap';
 import routerTransitionVue from './mixins/router-transition.vue';
-import scrollMeasureVue from './mixins/scroll-measure.vue';
+import scrollMeasure from './mixins/scroll-measure';
 import * as debounce from 'lodash.debounce';
 export default {
   name: 'App',
   mounted() {
-    /* if (this.$route.path != "/") {
-      this.$router.push("/");
-    } */
     this.addEvents();
     this.routerTransition();
-    console.log(this.$route.name);
-    //this.init();
   },
   data() {
     return {
@@ -74,8 +71,12 @@ export default {
       halfH: Number
     };
   },
-  mixins: [routerTransitionVue, scrollMeasureVue],
+  mixins: [routerTransitionVue, scrollMeasure],
   methods: {
+    handleClick() {
+      console.log('hola');
+      this.$router.replace({ path: '/' });
+    },
     openMenu() {
       this.$store.commit('toggleMenu', !this.$store.state.isMenuOpened);
       if (this.$store.state.isMenuOpened) {
@@ -110,13 +111,6 @@ export default {
         this.resetMenu();
       });
     }, 200)
-  },
-  watch: {
-    '$route.path': function() {
-      setTimeout(() => {
-        this.init();
-      }, 700);
-    }
   }
 };
 </script>
@@ -153,15 +147,16 @@ li {
   margin: 0 auto;
   max-width: 1440px;
   width: 70vw;
-  overflow: hidden;
 }
 
-.logo {
+.logo__wrapper {
   position: absolute;
   top: 48px;
   left: 50%;
-  width: 100px;
   transform: translateX(-50%);
+}
+.logo__wrapper .logo {
+  width: 100px;
 }
 .logo::before {
   content: '';

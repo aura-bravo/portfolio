@@ -58,7 +58,10 @@ p {
   &:hover,
   &:focus {
     .home__project-background-image {
-      transform: rotate(5deg) scale(1.2);
+      //transform: rotate(5deg) scale(1.2);
+    }
+    .home__project-background-image.home__project-background-image--black  {
+      opacity: 0;
     }
   }
 }
@@ -67,17 +70,10 @@ p {
   width: 68%;
   height: 0;
   padding-top: 40%;
-
-  &::after {
-    content: '';
-    position: absolute;
-    display: block;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,1));
-    opacity: 0.8;
+  transition: filter 0.3s;
+  .home__project-background-image.home__project-background-image--black {
+    opacity: 1;
+    transition: opacity 0.3s;
   }
   /* transition: clip-path .7s cubic-bezier(.74,.01,.32,1); */
 }
@@ -87,7 +83,7 @@ p {
   animation: project-preview-animation;
   animation-fill-mode: both;
   animation-duration: 1.4s;
-  animation-timing-function: ease-in-out;
+  animation-timing-function: cubic-bezier(0.85, 0, 0.15, 1) 1s;
   animation-play-state: paused;
   overflow: hidden;
   will-change: clip-path;
@@ -103,10 +99,6 @@ p {
   .home__project-wrapper--reverse {
     .home__project-line {
       transform: scaleX(1) translateX(40px);
-    }
-
-    .home__project-image__wrapper::after {
-      background-image: linear-gradient(to left, rgba(255,255,255,0), rgba(255,255,255,1));
     }
   }
   .home__project-background-image {
@@ -183,6 +175,10 @@ p {
     left: 5vw;
     right: unset;
     text-align: left;
+
+    .title-animation > span {
+      mix-blend-mode: multiply;
+    }
   }
   .home__project-number__wrapper {
     flex-direction: row;
@@ -214,7 +210,8 @@ p {
 }
 
 .animations--started .hero-info__wrapper .title-animation,
-.scrolled__to .home__project-info__wrapper .title-animation {
+.scrolled__to .home__project-info__wrapper .title-animation,
+.animations--started .project__title .title-animation {
   opacity: 1;
   span span {
     opacity: 1;

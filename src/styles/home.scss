@@ -181,13 +181,12 @@ p {
   align-items: center;
 }
 .home__project-line {
-  width: 35%;
+  width: 16vw;
   margin-right: 5%;
   border-bottom: 1px solid #000;
   transform-origin: left;
   transform: scaleX(0);
   transition: transform 0.8s 1s;
-  min-width: 250px;
 }
 
 .home__project-wrapper.home__project-wrapper--reverse {

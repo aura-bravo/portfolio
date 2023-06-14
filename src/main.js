@@ -10,25 +10,3 @@ new Vue({
   store,
   render: h => h(App)
 }).$mount('#app');
-
-/* router.beforeEach((to, from, next) => {
-  store.commit('toggleProjectVisibility', false);
-  setTimeout(() => {
-    next();
-  }, 100);
-});
-
-router.afterEach((to, from) => {
-  document.body.classList.remove('hello');
-}); */
-
-router.beforeEach((to, from, next) => {
-  store.commit('toggleTransitionState', true);
-  next();
-});
-
-router.afterEach(() => {
-  setTimeout(() => {
-    store.commit('toggleTransitionState', false);
-  }, 700);
-});

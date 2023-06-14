@@ -1,5 +1,6 @@
 body,
-html {overflow-x: hidden;
+html {
+  overflow-x: hidden;
   background-color: $background-color;
 }
 
@@ -30,23 +31,21 @@ body.no-scroll {
 .content__container {
   opacity: 1;
   transition: 0.2s;
-
-  &.transitioning {
-    opacity: 0;
-  }
 }
 
 .pointer-circle {
-  position: absolute;
-  top: calc(50% - 21px);
-  left: calc(50% - 21px);
+  position: fixed;
+  top: -20px;
+  left: -20px;
   width: 42px;
   height: 42px;
+  border-radius: 50%;
   pointer-events: none;
   z-index: 9999;
+  border: 1px solid black;
   
   &::before {
-    content: '';
+    content: none;
     display: block;
     position: absolute;
     top: 0;
@@ -63,9 +62,7 @@ body.no-scroll {
 
 .pointer {
   pointer-events: none;
-  position: absolute;
-  top: calc(50% - 1.5px);
-  left: calc(50% - 1.5px);
+  position: fixed;
   width: 5px;
   height: 5px;
   border-radius: 50%;
@@ -112,10 +109,6 @@ body.no-scroll {
     background-color: $primary-color;
     transform-origin: top;
   }
-}
-
-* {
-  cursor: none;
 }
 
 .section-spacer {
@@ -543,18 +536,17 @@ body.no-scroll {
 .router__wave-transition,
 .router__wave-transition--looper {
   position: fixed;
+  top: 0;
   width: 100vw;
   height: 100vh;
   background-color: #000;
   z-index: 99999;
-  will-change: transform;
 }
 
 .router__wave-transition--looper {
-  transform: translateY(100%);
 }
 
-.router__wave-transition.router__wave-transition--entering {
+/* .router__wave-transition.router__wave-transition--entering {
   animation-name: startingAnimation;
   animation-fill-mode: both;
   animation-duration: 1s;
@@ -588,4 +580,4 @@ body.no-scroll {
   100% {
     transform: translateY(-100%);
   }
-}
+} */

@@ -1,25 +1,27 @@
 <template>
-  <div id="app" :class="{ 'is-contact-page': $route.name === 'Contact' }">
-    <div class="pointer__wrapper">
-      <div class="pointer-circle" ref="circleRef"></div>
-      <div class="pointer" ref="pointer"></div>
-    </div>
-    <div class="router__wave-transition"></div>
-    <div class="router__wave-transition--looper"></div>
-    <div class="scroll-measurer">
-      <p>Scroll</p>
-      <span></span>
-      <p>Done</p>
-    </div>
-    <div class="max-bound">
-      <div
-        class="main-container"
-        :class="{ 'main-container--not-home': $route.path != '/' }"
+  <div>
+    <div id="app" :class="{ 'is-contact-page': $route.name === 'Contact' }">
+      <div class="pointer__wrapper">
+        <div class="pointer-circle" ref="circleRef"></div>
+        <div class="pointer" ref="pointer"></div>
+      </div>
+      <nav
+        class="nav"
+        ref="navRef"
+        :class="{ 'nav--opened': $store.state.isMenuOpened }"
       >
-        <!-- <div class="home__outer-content">
-          <div class="main-nav__toggle"></div>
-          <div class="social"></div>
-        </div>-->
+        <router-link class="linked" to="/contact">Contact</router-link>
+        <span></span>
+        <router-link class="linked" to="/about">About</router-link>
+        <span></span>
+        <router-link class="linked" to="/">Home</router-link>
+      </nav>
+      <div class="scroll-measurer">
+        <p>Scroll</p>
+        <span></span>
+        <p>Done</p>
+      </div>
+      <smooth-scroll>
         <header>
           <div
             class="logo__wrapper"
@@ -41,24 +43,21 @@
           >
             <span></span>
           </div>
-          <nav
-            class="nav"
-            :class="{ 'nav--opened': $store.state.isMenuOpened }"
-          >
-            <router-link class="linked" to="/contact">Contact</router-link>
-            <span></span>
-            <router-link class="linked" to="/about">About</router-link>
-            <span></span>
-            <router-link class="linked" to="/">Home</router-link>
-          </nav>
         </header>
-        <div
-          class="content__container"
-          :class="{ transitioning: $store.state.transitioning }"
-        >
-          <router-view />
+        <div class="max-bound" id="appWrapper">
+          <div
+            class="main-container"
+            :class="{ 'main-container--not-home': $route.path != '/' }"
+          >
+            <div
+              class="content__container"
+              :class="{ transitioning: $store.state.transitioning }"
+            >
+              <router-view />
+            </div>
+          </div>
         </div>
-      </div>
+      </smooth-scroll>
     </div>
   </div>
 </template>
@@ -68,7 +67,9 @@ import { gsap } from 'gsap';
 import routerTransitionVue from './mixins/router-transition.vue';
 import scrollMeasure from './mixins/scroll-measure';
 import * as debounce from 'lodash.debounce';
+import SmoothScroll from './views/SmoothScroll.vue';
 export default {
+  components: { SmoothScroll },
   name: 'App',
   mounted() {
     this.addEvents();
@@ -80,7 +81,13 @@ export default {
       rawX: Number,
       rawY: Number,
       halfW: Number,
-      halfH: Number
+      halfH: Number,
+      pointerX: Number,
+      pointerY: Number,
+      mousePositionBackup: {
+        x: Number,
+        y: Number
+      }
     };
   },
   mixins: [routerTransitionVue, scrollMeasure],
@@ -116,23 +123,21 @@ export default {
       }
     },
     addEvents() {
-      window.addEventListener('mousemove', event => {
-        this.followPointer(event);
-      });
+      window.addEventListener('mousemove', this.followPointer);
       this.resizeEvent();
     },
     followPointer(e) {
-      this.rawX = e.clientX;
-      this.rawY = e.clientY;
-      this.halfW = window.innerWidth / 2;
-      this.halfH = window.innerHeight / 2 - window.scrollY;
-      gsap.to(this.$refs.circleRef, 0.5, {
-        x: this.rawX - this.halfW,
-        y: this.rawY - this.halfH
+      gsap.to(this.$refs.circleRef, {
+        x: e.clientX,
+        y: e.clientY,
+        duration: 0.4,
+        ease: 'sine.out'
       });
-      gsap.to(this.$refs.pointer, 0, {
-        x: this.rawX - this.halfW,
-        y: this.rawY - this.halfH
+      gsap.to(this.$refs.pointer, {
+        x: e.clientX,
+        y: e.clientY,
+        duration: 0.2,
+        ease: 'sine.out'
       });
     },
     resizeEvent: debounce(function() {
@@ -152,7 +157,6 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   color: #414040;
   background-color: #f5f5f1;
-  min-height: 100vh;
 }
 
 #nav {

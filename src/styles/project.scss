@@ -114,11 +114,11 @@
   &__text-carousel-container {
     position: relative;
     width: 150vw;
-    height: 100px;
+    height: 6vw;
 
     &:first-of-type {
       .project__text-carousel {
-        left: -30vw;
+        left: -100vw;
       }
     }
   }
@@ -127,14 +127,14 @@
     position: absolute;
     display: flex;
     width: 100%;
-    left: -75vw;
+    left: -10vw;
     gap: 40px;
   }
 
   &__text-carousel-phrase {
     position: relative;
     flex-shrink: 0;
-    font-size: 64px;
+    font-size: 5vw;
     font-weight: 700;
     color: $background-color;
     -webkit-text-stroke: 1px #131313;

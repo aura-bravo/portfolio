@@ -66,6 +66,7 @@
 // @ is an alias to /src
 /* import Project from '../components/Project.vue' */
 //import styles from '../styles/home.scss'
+import gsap from 'gsap';
 import store from './../store/index';
 import Mixin from '../mixins/Mixin';
 import routerTransition from '../mixins/router-transition';
@@ -107,17 +108,25 @@ export default {
       const textCarouselElement2 = this.$refs.projectTextCarousel2;
       const { mathMapping } = this;
 
-      const transformVal = mathMapping(
-        window.scrollY,
-        0,
-        document.documentElement.scrollHeight - window.innerHeight,
-        0,
-        30,
-        true
-      );
-      textCarouselElement.style.transform = `translateX(${transformVal}%)`;
-      textCarouselElement2.style.transform = `translateX(${transformVal *
-        -1}%)`;
+      const transformVal =
+        mathMapping(
+          window.scrollY,
+          0,
+          document.documentElement.scrollHeight - window.innerHeight,
+          0,
+          30,
+          true
+        ) * 40;
+      gsap.to(textCarouselElement, {
+        x: transformVal,
+        duration: 1,
+        ease: 'sine.out'
+      });
+      gsap.to(textCarouselElement2, {
+        x: transformVal * -1,
+        duration: 1,
+        ease: 'sine.out'
+      });
     },
     mathMapping(n, start1, stop1, start2, stop2) {
       const newval =
@@ -173,9 +182,8 @@ export default {
     this.$store.commit('toggleProjectVisibility', false);
     this.routerTransition();
     this.removeScrolledTo();
-    setTimeout(() => {
-      this.startAnimations();
-    }, 400);
+    this.startAnimations();
+    setTimeout(() => {}, 400);
     setTimeout(() => {
       next();
     }, 800);

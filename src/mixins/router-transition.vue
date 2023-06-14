@@ -1,25 +1,49 @@
 <script>
+import gsap from 'gsap';
 export default {
   mounted() {
     this.resetMenu();
   },
+  data() {
+    return {
+      timeline: gsap.timeline()
+    };
+  },
   methods: {
-    routerTransition() {
+    setWaveAnimation() {
       const wave = document.querySelector('.router__wave-transition');
-      const waveLoop = document.querySelector(
-        '.router__wave-transition--looper'
+      gsap.set(wave, { transformOrigin: 'bottom center', clearProps: true });
+      gsap.set(wave, { transformOrigin: 'bottom center' });
+      const scaleWave = gsap.fromTo(
+        wave,
+        {
+          scaleY: 0
+        },
+        {
+          scaleY: 1,
+          duration: 1,
+          ease: 'expo.inOut',
+          onComplete: () => {
+            this.$store.commit('toggleTransitionState', false);
+            window.scrollTo(0, 0);
+          }
+        }
       );
-      if (!wave.classList.contains('router__wave-transition--entering')) {
-        wave.classList.add('router__wave-transition--entering');
-      } else {
-        waveLoop.classList.add('router__wave-transition--looper--looping');
-        setTimeout(() => {
-          waveLoop.classList.remove('router__wave-transition--looper--looping');
-        }, 3000);
-      }
+      const moveWave = gsap.to(wave, {
+        yPercent: -100,
+        duration: 1.5,
+        ease: 'expo.inOut'
+      });
+      this.timeline.add(scaleWave).add(moveWave);
+    },
+    routerTransition() {
+      this.setWaveAnimation();
+      setTimeout(() => {
+        this.timeline.play();
+      }, 900);
       setTimeout(() => {
         this.startAnimation();
-      }, 900);
+      }, 1500);
     },
     resetMenu() {
       document.body.classList.remove('no-scroll');
@@ -36,7 +60,6 @@ export default {
       if (pointer.classList.contains('hovering')) {
         pointer.classList.remove('hovering');
       }
-      window.scrollTo({ left: 0, top: 0, behavior: 'smooth' });
       setTimeout(() => {
         this.$store.commit('toggleProjectVisibility', true);
       }, 500);

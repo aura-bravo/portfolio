@@ -1,4 +1,5 @@
 <script>
+import gsap from 'gsap';
 export default {
   mounted() {
     this.scrollMeasurer = document.querySelector('.scroll-measurer span');
@@ -31,7 +32,12 @@ export default {
         this.maxValue,
         true
       );
-      this.scrollMeasurer.style.transform = `scaleY(${mapResult})`;
+      gsap.set(this.scrollMeasurer, { scaleX: 1 });
+      gsap.to(this.scrollMeasurer, {
+        scaleY: mapResult,
+        duration: 0.8,
+        ease: 'power3.out'
+      });
     },
     resetValues() {
       if (this.$route.path != '/contact') {

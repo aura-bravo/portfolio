@@ -96,7 +96,7 @@ export default {
   },
   mixins: [Mixin, routerTransition, sectionCatcher],
   beforeRouteLeave(to, from, next) {
-    this.routerTransition();
+    this.onRouteChange();
     window.removeEventListener('scroll', this.animateTextCarousel);
     setTimeout(() => {
       next();
@@ -180,7 +180,7 @@ export default {
   },
   beforeRouteUpdate(to, from, next) {
     this.$store.commit('toggleProjectVisibility', false);
-    this.routerTransition();
+    this.onRouteChange();
     this.removeScrolledTo();
     this.startAnimations();
     setTimeout(() => {}, 400);

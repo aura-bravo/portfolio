@@ -27,16 +27,16 @@
 </template>
 
 <script>
-import Mixin from "../mixins/Mixin";
-import routerTransition from "../mixins/router-transition";
+import Mixin from '../mixins/Mixin';
+import routerTransition from '../mixins/router-transition';
 export default {
-  name: "Contact",
+  name: 'Contact',
   mixins: [Mixin, routerTransition],
   beforeRouteLeave(to, from, next) {
-    this.routerTransition();
+    this.onRouteChange();
     setTimeout(() => {
       next();
     }, 1400);
-  },
+  }
 };
 </script>

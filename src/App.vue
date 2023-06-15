@@ -73,7 +73,8 @@ export default {
   name: 'App',
   mounted() {
     this.addEvents();
-    this.routerTransition();
+    //this.setWaveAnimation();
+    this.onRouteChange();
     this.mountMouseOverEvent();
   },
   data() {

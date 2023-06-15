@@ -6,14 +6,15 @@ export default {
   },
   data() {
     return {
-      timeline: gsap.timeline()
+      tl: gsap.timeline()
     };
   },
   methods: {
     setWaveAnimation() {
       const wave = document.querySelector('.router__wave-transition');
-      gsap.set(wave, { transformOrigin: 'bottom center', clearProps: true });
-      gsap.set(wave, { transformOrigin: 'bottom center' });
+      this.tl.set(wave, { transformOrigin: 'bottom center', clearProps: true });
+      this.tl.set(wave, { transformOrigin: 'bottom center' });
+      window.scrollTo(0, 0);
       const scaleWave = gsap.fromTo(
         wave,
         {
@@ -25,7 +26,6 @@ export default {
           ease: 'expo.inOut',
           onComplete: () => {
             this.$store.commit('toggleTransitionState', false);
-            window.scrollTo(0, 0);
           }
         }
       );
@@ -34,16 +34,11 @@ export default {
         duration: 1.5,
         ease: 'expo.inOut'
       });
-      this.timeline.add(scaleWave).add(moveWave);
+      this.tl.add(scaleWave).add(moveWave);
     },
-    routerTransition() {
+    onRouteChange() {
       this.setWaveAnimation();
-      setTimeout(() => {
-        this.timeline.play();
-      }, 900);
-      setTimeout(() => {
-        this.startAnimation();
-      }, 1500);
+      this.onRouteChangeReset();
     },
     resetMenu() {
       document.body.classList.remove('no-scroll');
@@ -55,7 +50,7 @@ export default {
         this.$store.commit('toggleMenu', false);
       }
     },
-    startAnimation() {
+    onRouteChangeReset() {
       const pointer = document.querySelector('.pointer__wrapper');
       if (pointer.classList.contains('hovering')) {
         pointer.classList.remove('hovering');

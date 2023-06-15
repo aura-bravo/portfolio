@@ -172,10 +172,9 @@ export default {
     this.startAnimations();
   },
   beforeRouteLeave(to, from, next) {
-    this.routerTransition();
-    setTimeout(() => {
-      next();
-    }, 1400);
+    this.onRouteChange();
+    next();
+    setTimeout(() => {}, 1400);
   }
 };
 </script>

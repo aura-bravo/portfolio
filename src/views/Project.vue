@@ -111,8 +111,8 @@ import SplitText from 'gsap/SplitText';
 
 gsap.registerPlugin(ScrollTrigger, SplitText);
 import store from './../store/index';
-import Mixin from '../mixins/Mixin';
-import routerTransition from '../mixins/router-transition';
+import Mixin from '../mixins/Mixin.vue';
+import routerTransition from '../mixins/router-transition.vue';
 
 export default {
   name: 'Project',

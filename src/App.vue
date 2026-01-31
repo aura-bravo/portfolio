@@ -30,7 +30,7 @@
             <img
               class="logo"
               alt="Aura Bravo logo"
-              src="../public/assets/img/Recurso1logo.png"
+              src="/assets/img/Recurso1logo.png"
             />
           </div>
           <div
@@ -66,8 +66,8 @@
 <script>
 import { gsap } from 'gsap';
 import routerTransitionVue from './mixins/router-transition.vue';
-import scrollMeasure from './mixins/scroll-measure';
-import * as debounce from 'lodash.debounce';
+import scrollMeasure from './mixins/scroll-measure.vue';
+import debounce from 'lodash.debounce';
 import SmoothScroll from './views/SmoothScroll.vue';
 export default {
   components: { SmoothScroll },

@@ -27,8 +27,8 @@
 </template>
 
 <script>
-import Mixin from '../mixins/Mixin';
-import routerTransition from '../mixins/router-transition';
+import Mixin from '../mixins/Mixin.vue';
+import routerTransition from '../mixins/router-transition.vue';
 export default {
   name: 'Contact',
   mixins: [Mixin, routerTransition],

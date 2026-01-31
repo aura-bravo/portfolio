@@ -64,7 +64,7 @@
   }
 
   &__title {
-    line-height: (96 / 72);
+    line-height: calc(96 / 72);
     font-style: italic;
 
     &::after {

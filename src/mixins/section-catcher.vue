@@ -1,5 +1,5 @@
 <script>
-import * as debounce from 'lodash.debounce';
+import debounce from 'lodash.debounce';
 export default {
   created() {},
   mounted() {

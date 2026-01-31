@@ -1,30 +1,29 @@
-import Vue from 'vue';
-import Vuex from 'vuex';
-import data from '../../public/assets/data.json';
+import { createStore } from 'vuex'
+import data from '../assets/data.json'
 
-Vue.use(Vuex);
-
-export default new Vuex.Store({
-  state: {
-    data: data,
-    projectIndex: 0,
-    isMenuOpened: false,
-    showProject: true,
-    transitioning: false
+export default createStore({
+  state() {
+    return {
+      data: data,
+      projectIndex: 0,
+      isMenuOpened: false,
+      showProject: true,
+      transitioning: false
+    }
   },
   mutations: {
     toggleMenu(state, payload) {
-      state.isMenuOpened = payload;
+      state.isMenuOpened = payload
     },
     toggleProjectVisibility(state, payload) {
-      state.showProject = payload;
-      console.log("show");
+      state.showProject = payload
+      console.log("show")
     },
     toggleTransitionState(state, payload) {
-      state.transitioning = payload;
-      console.log("transitioning:", payload);
+      state.transitioning = payload
+      console.log("transitioning:", payload)
     }
   },
   actions: {},
   modules: {}
-});
+})

@@ -1,11 +1,8 @@
-import Vue from "vue";
-import VueRouter from "vue-router";
-import Home from "../views/Home.vue";
-import Project from "../views/Project.vue";
-import About from "../views/About.vue";
-import Contact from "../views/Contact.vue";
-
-Vue.use(VueRouter);
+import { createRouter, createWebHashHistory } from "vue-router"
+import Home from "../views/Home.vue"
+import Project from "../views/Project.vue"
+import About from "../views/About.vue"
+import Contact from "../views/Contact.vue"
 
 const routes = [
   {
@@ -31,11 +28,11 @@ const routes = [
     // which is lazy-loaded when the route is visited.
     component: Project,
   },
-];
+]
 
-const router = new VueRouter({
-  mode: "hash",
+const router = createRouter({
+  history: createWebHashHistory(),
   routes,
-});
+})
 
-export default router;
+export default router

@@ -160,9 +160,9 @@
 </template>
 
 <script>
-import Mixin from '../mixins/Mixin';
-import routerTransition from '../mixins/router-transition';
-import sectionCatcher from '../mixins/section-catcher';
+import Mixin from '../mixins/Mixin.vue';
+import routerTransition from '../mixins/router-transition.vue';
+import sectionCatcher from '../mixins/section-catcher.vue';
 export default {
   name: 'About',
   mixins: [Mixin, routerTransition, sectionCatcher],

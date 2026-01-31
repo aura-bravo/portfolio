@@ -1,65 +1,104 @@
 <style lang="scss" src="../styles/project.scss" scoped></style>
-<template lang="pug">
-.project__container(:class="{'content--hidden': !$store.state.showProject}")
-  .project__content-section
-    .project__right-aligned 
-      .image__wrapper.image__wrapper--hero-image
-        img.image__element.project__right-content(:src="project.mainImageColor")
-  section.project__content-section
-    .title__wrapper
-      h1.project__title {{project.title}}
-  section.project__content-section
-    .project__right-aligned
-      p.project__right-content {{project.intro}}
-  section.project__content-section
-    .image__wrapper
-      img.image__element.project__image.project__image--big(:src="project.contextImage")
-  section.project__content-section
-    h3.project__title Challenge
-    .project__content-divided
-      .project__content-divided-block
-        p 
-          strong.project__content-challenge-strong {{project.challenge}}
-      .project__content-divided-block
-        p.project__content-challenge-text {{project.question1}}
-        p.project__content-challenge-text {{project.question2}}
-  section.project__content-section.project__content-section--big-space.project__image--big
-    .project__text-carousel-container
-      .project__text-carousel(ref="projectTextCarousel")
-        .project__text-carousel-phrase(v-for="phrase of project.tasks") {{phrase}}
-    .project__text-carousel-container
-      .project__text-carousel(ref="projectTextCarousel2")
-        .project__text-carousel-phrase(v-for="phrase of project.tasks") {{phrase}}
-  section.project__content-section
-    .image__wrapper
-      img.image__element.project__image.project__image--big(:src="project.processImage")
-  .project__content-section.project__content-section--big-space
-    h3.project__title Result
-  section.project__content-section
-    .project__right-aligned.project__result-text(v-for="projectResult of project.result")
-      p.project__right-content {{projectResult}}
-  section.project__content-section.project__content-section--centered
-    .image__wrapper.image__wrapper--vertical
-      img.image__element.project__image(:src="project.largeImage")
-  section.project__content-section
-    .project__right-aligned.project__right-aligned--left
-      .image__wrapper
-        img.image__element.project__right-content(:src="project.image1")
-  section.project__content-section
-    .project__right-aligned
-      .image__wrapper
-        img.image__element.project__right-content(:src="project.image2")
-  section.project__content-section
-    .project__right-aligned.project__right-aligned--left
-      .image__wrapper
-        img.image__element.project__right-content(:src="project.image3")
-  section.project__content-section.project__content-section--big-space
-    .image__wrapper
-      img.image__element.project__image.project__image--big(:src="project.finalImage")
-  
-  .project__navigation-wrapper
-    router-link.linked.project__navigation-link.h2.h2--italic(:to="prevProject.split(' ').join('').split('-').join('').toLowerCase()") {{ prevProject }}
-    router-link.linked.project__navigation-link.h2.h2--italic(:to="nextProject.split(' ').join('').split('-').join('').toLowerCase()") {{ nextProject }}
+<template>
+  <div class="project__container">
+    <div class="project__content-section">
+      <div class="project__right-aligned">
+        <div class="image__wrapper image__wrapper--hero-image">
+          <img class="image__element project__right-content" :src="project.mainImageColor">
+        </div>
+      </div>
+    </div>
+    <section class="project__content-section">
+      <div class="title__wrapper">
+        <h1 class="project__title">{{project.title}}</h1>
+      </div>
+    </section>
+    <section class="project__content-section">
+      <div class="project__right-aligned">
+        <p class="project__right-content">{{project.intro}}</p>
+      </div>
+    </section>
+    <section class="project__content-section">
+      <div class="image__wrapper">
+        <img class="image__element project__image project__image--big" :src="project.contextImage">
+      </div>
+    </section>
+    <section class="project__content-section">
+      <h3 class="project__title">Challenge</h3>
+      <div class="project__content-divided">
+        <div class="project__content-divided-block">
+          <p>
+            <strong class="project__content-challenge-strong">{{project.challenge}}</strong>
+          </p>
+        </div>
+        <div class="project__content-divided-block">
+          <p class="project__content-challenge-text">{{project.question1}}</p>
+          <p class="project__content-challenge-text">{{project.question2}}</p>
+        </div>
+      </div>
+    </section>
+    <section class="project__content-section project__content-section--big-space project__image--big">
+      <div class="project__text-carousel-container">
+        <div class="project__text-carousel" ref="projectTextCarousel">
+          <div class="project__text-carousel-phrase" v-for="phrase of project.tasks">{{phrase}}</div>
+        </div>
+      </div>
+      <div class="project__text-carousel-container">
+        <div class="project__text-carousel project__text-carousel--2" ref="projectTextCarousel2">
+          <div class="project__text-carousel-phrase" v-for="phrase of project.tasks">{{phrase}}</div>
+        </div>
+      </div>
+    </section>
+    <section class="project__content-section">
+      <div class="image__wrapper">
+        <img class="image__element project__image project__image--big" :src="project.processImage">
+      </div>
+    </section>
+    <div class="project__content-section project__content-section--big-space">
+      <h3 class="project__title">Result</h3>
+    </div>
+    <section class="project__content-section">
+      <div class="project__right-aligned project__result-text" v-for="projectResult of project.result">
+        <p class="project__right-content">{{projectResult}}</p>
+      </div>
+    </section>
+    <section class="project__content-section project__content-section--centered">
+      <div class="image__wrapper-vertical image__wrapper--vertical">
+        <img class="image__element-vertical project__image" :src="project.largeImage">
+      </div>
+    </section>
+    <section class="project__content-section">
+      <div class="project__right-aligned project__right-aligned--left">
+        <div class="image__wrapper">
+          <img class="image__element project__right-content" :src="project.image1">
+        </div>
+      </div>
+    </section>
+    <section class="project__content-section">
+      <div class="project__right-aligned">
+        <div class="image__wrapper">
+          <img class="image__element project__right-content" :src="project.image2">
+        </div>
+      </div>
+    </section>
+    <section class="project__content-section">
+      <div class="project__right-aligned project__right-aligned--left">
+        <div class="image__wrapper">
+          <img class="image__element project__right-content" :src="project.image3">
+        </div>
+      </div>
+    </section>
+    <section class="project__content-section project__content-section--big-space">
+      <div class="image__wrapper">
+        <img class="image__element project__image project__image--big" :src="project.finalImage">
+      </div>
+    </section>
+    
+    <div class="project__navigation-wrapper">
+      <router-link class="linked project__navigation-link h2 h2--italic" :to="prevProject.split(' ').join('').split('-').join('').toLowerCase()">{{ prevProject }}</router-link>
+      <router-link class="linked project__navigation-link h2 h2--italic" :to="nextProject.split(' ').join('').split('-').join('').toLowerCase()">{{ nextProject }}</router-link>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -67,10 +106,13 @@
 /* import Project from '../components/Project.vue' */
 //import styles from '../styles/home.scss'
 import gsap from 'gsap';
+import ScrollTrigger from 'gsap/ScrollTrigger';
+import SplitText from 'gsap/SplitText';
+
+gsap.registerPlugin(ScrollTrigger, SplitText);
 import store from './../store/index';
 import Mixin from '../mixins/Mixin';
 import routerTransition from '../mixins/router-transition';
-import sectionCatcher from '../mixins/section-catcher';
 
 export default {
   name: 'Project',
@@ -87,51 +129,113 @@ export default {
     this.setProjectNavigation();
   },
   mounted() {
-    this.breakAllTitles();
-    this.startAnimations();
-    this.$nextTick(() => {
-      this.addScrolledClass();
-      window.addEventListener('scroll', this.animateTextCarousel);
+    this.waitForImages().then(() => {
+      ScrollTrigger.refresh();
+      this.startAnimations();
+      this.animateTextCarousel();
     });
   },
-  mixins: [Mixin, routerTransition, sectionCatcher],
-  beforeRouteLeave(to, from, next) {
-    this.onRouteChange();
-    window.removeEventListener('scroll', this.animateTextCarousel);
-    setTimeout(() => {
-      next();
-    }, 1400);
-  },
+  mixins: [Mixin, routerTransition],
   methods: {
-    animateTextCarousel() {
-      const textCarouselElement = this.$refs.projectTextCarousel;
-      const textCarouselElement2 = this.$refs.projectTextCarousel2;
-      const { mathMapping } = this;
+    startAnimations() {
+      this.$nextTick(() => {
+        gsap.utils.toArray('.project__title').forEach(title => {
+          const split = new SplitText(title, {
+            type: 'chars',
+            linesClass: 'split-line',
+            mask: 'chars'
+          });
 
-      const transformVal =
-        mathMapping(
-          window.scrollY,
-          0,
-          document.documentElement.scrollHeight - window.innerHeight,
-          0,
-          30,
-          true
-        ) * 40;
-      gsap.to(textCarouselElement, {
-        x: transformVal,
-        duration: 1,
-        ease: 'sine.out'
-      });
-      gsap.to(textCarouselElement2, {
-        x: transformVal * -1,
-        duration: 1,
-        ease: 'sine.out'
+          gsap.from(split.chars, {
+            yPercent: 100,
+            rotate: 20,
+            duration: 0.7,
+            ease: 'power3.out',
+            stagger: 0.07,
+            scrollTrigger: {
+              trigger: title,
+              start: 'top 60%',
+              toggleActions: 'play none none none'
+            }
+          });
+        });
+
+        gsap.utils.toArray('.image__element').forEach((img, index) => {
+          const parent = img.parentElement;
+          gsap.from(img, {
+            xPercent: 100,
+            duration: 1,
+            ease: 'power2.out',
+            scrollTrigger: {
+              trigger: img,
+              start: 'top 80%',
+              toggleActions: 'play none none none',
+              markers: true
+            }
+          });
+          gsap.from(parent, {
+            xPercent: -100,
+            duration: 1,
+            ease: 'power2.out',
+            onStart: () => {
+              console.log("started", img, index)
+            },
+            scrollTrigger: {
+              trigger: img,
+              start: 'top 80%',
+              toggleActions: 'play none none none',
+              markers: true
+            }
+          });
+        });
+        gsap.from('.image__wrapper-vertical', {
+          yPercent: -100,
+          duration: 2,
+          scrollTrigger: {
+            trigger: '.image__wrapper-vertical',
+            start: `top+=${window.innerHeight / 1.125}`,
+            end: `bottom+=${window.innerHeight / 1.125}`,
+            toggleActions: 'play none none none',
+            markers: true,
+          }
+        });
+        gsap.from('.image__element-vertical', {
+          yPercent: 100,
+          duration: 2,
+          scrollTrigger: {
+            trigger: '.image__wrapper-vertical',
+            start: `top+=${window.innerHeight / 1.125}`,
+            end: `bottom+=${window.innerHeight / 1.125}`,
+            toggleActions: 'play none none none',
+            markers: true,
+          }
+        });
       });
     },
-    mathMapping(n, start1, stop1, start2, stop2) {
-      const newval =
-        ((n - start1) / (stop1 - start1)) * (stop2 - start2) + start2;
-      return newval;
+    animateTextCarousel() {
+      ScrollTrigger.create({
+        trigger: this.$el,
+        start: 'top top',
+        end: 'bottom bottom',
+        scrub: true,
+        toggleActions: 'play none none none',
+        onUpdate: self => {
+          const progress = self.progress;
+          const maxTransform = 1200;
+          const xVal = maxTransform * progress;
+
+          gsap.to('.project__text-carousel', {
+            x: xVal,
+            duration: 0.5,
+            overwrite: 'auto'
+          });
+          gsap.to('.project__text-carousel--2', {
+            x: -xVal,
+            duration: 0.5,
+            overwrite: 'auto'
+          });
+        }
+      });
     },
     setProjectNavigation() {
       const projectNavigationObj = this.projectData.map((element, index) => {
@@ -157,13 +261,43 @@ export default {
       this.$router.push(
         `/${this.projectNavigationObj[currentRouteNextIndex].name}`
       );
+    },
+    waitForImages() {
+      return new Promise(resolve => {
+        const images = this.$el.querySelectorAll('img');
+        let loaded = 0;
+
+        if (images.length === 0) {
+          resolve();
+        }
+
+        images.forEach(img => {
+          if (img.complete) {
+            loaded++;
+            if (loaded === images.length) resolve();
+          } else {
+            img.addEventListener('load', () => {
+              loaded++;
+              if (loaded === images.length) resolve();
+            });
+            img.addEventListener('error', () => {
+              loaded++;
+              if (loaded === images.length) resolve();
+            });
+          }
+        });
+      });
     }
+  },
+  beforeDestroy() {
+    console.log("destroyed");
+    ScrollTrigger.killAll();
   },
   computed: {
     project() {
-      return this.projectData.filter(
+      return this.projectData.find(
         element => element.id === this.$route.params.name
-      )[0];
+      );
     },
     nextProject() {
       const currentRouteNextIndex = this.projectNavigationObj.find(
@@ -179,14 +313,10 @@ export default {
     }
   },
   beforeRouteUpdate(to, from, next) {
-    this.$store.commit('toggleProjectVisibility', false);
     this.onRouteChange();
-    this.removeScrolledTo();
-    this.startAnimations();
-    setTimeout(() => {}, 400);
-    setTimeout(() => {
+    if (this.$store.state.showProject) {
       next();
-    }, 800);
-  }
+    }
+  },
 };
 </script>

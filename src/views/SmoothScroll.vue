@@ -6,8 +6,8 @@
 
 <script>
 import { gsap } from 'gsap';
-import ScrollSmoother from 'gsap-bonus/package/ScrollSmoother';
-import ScrollTrigger from 'gsap/ScrollTrigger';
+import { ScrollSmoother } from 'gsap/ScrollSmoother';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 export default {
   name: 'SmoothScroll',
   data() {
@@ -27,13 +27,21 @@ export default {
   },
   watch: {
     '$store.state.transitioning'(newVal, oldVal) {
-      console.log('hello');
-      if (newVal) {
-        this.trigger.scroll(0);
-        this.smoother.smooth(0);
-      } else {
-        this.smoother.smooth(2);
+      if (!newVal) {
+        if (this.smoother) {
+          //this.smoother.scrollTo(0, true);
+        }
       }
+    }
+  },
+  beforeUnmount() {
+    if (this.smoother) {
+      this.smoother.kill();
+      this.smoother = null;
+    }
+    if (this.trigger) {
+      this.trigger.kill();
+      this.trigger = null;
     }
   }
 };

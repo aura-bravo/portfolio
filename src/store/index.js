@@ -18,9 +18,11 @@ export default new Vuex.Store({
     },
     toggleProjectVisibility(state, payload) {
       state.showProject = payload;
+      console.log("show");
     },
     toggleTransitionState(state, payload) {
       state.transitioning = payload;
+      console.log("transitioning:", payload);
     }
   },
   actions: {},

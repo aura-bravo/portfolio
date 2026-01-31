@@ -26,7 +26,6 @@
           <div
             class="logo__wrapper"
             @click="handleClick"
-            v-if="!$store.state.transitioning"
           >
             <img
               class="logo"
@@ -53,7 +52,9 @@
               class="content__container"
               :class="{ transitioning: $store.state.transitioning }"
             >
-              <router-view />
+            <transition name="fade" mode="out-in">
+              <router-view v-if="showView" :key="routeKey" />
+            </transition>
             </div>
           </div>
         </div>
@@ -73,7 +74,6 @@ export default {
   name: 'App',
   mounted() {
     this.addEvents();
-    //this.setWaveAnimation();
     this.onRouteChange();
     this.mountMouseOverEvent();
   },
@@ -88,7 +88,8 @@ export default {
       mousePositionBackup: {
         x: Number,
         y: Number
-      }
+      },
+      showView: true
     };
   },
   mixins: [routerTransitionVue, scrollMeasure],
@@ -146,9 +147,24 @@ export default {
         this.init();
         this.resetMenu();
       });
-    }, 200)
+    }, 200),
+  },
+  computed: {
+    routeKey() {
+      return this.$route.fullPath;
+    }
+  },
+  watch: {
+    $route(to, from) {
+      this.showView = false;
+
+      // Esperar animación de salida antes de montar el nuevo
+      setTimeout(() => {
+        this.showView = true;
+      }, 100); // Cambia según la duración de tu animación de salida
+    }
   }
-};
+}
 </script>
 
 <style>

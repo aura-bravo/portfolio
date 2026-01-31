@@ -11,10 +11,10 @@ export default {
   },
   methods: {
     setWaveAnimation() {
+      const vm = this;
       const wave = document.querySelector('.router__wave-transition');
       this.tl.set(wave, { transformOrigin: 'bottom center', clearProps: true });
       this.tl.set(wave, { transformOrigin: 'bottom center' });
-      window.scrollTo(0, 0);
       const scaleWave = gsap.fromTo(
         wave,
         {
@@ -24,15 +24,24 @@ export default {
           scaleY: 1,
           duration: 1,
           ease: 'expo.inOut',
-          onComplete: () => {
-            this.$store.commit('toggleTransitionState', false);
+          onStart: () => {
+            this.$store.commit('toggleTransitionState', true);
+            this.$store.commit('toggleProjectVisibility', false);
           }
         }
       );
       const moveWave = gsap.to(wave, {
         yPercent: -100,
         duration: 1.5,
-        ease: 'expo.inOut'
+        ease: 'expo.inOut',
+        onUpdate: function () {
+          if (this.progress() >= 0.5 && !vm.$store.state.showProject) {
+            vm.$store.commit('toggleProjectVisibility', true);
+          }
+        },
+        onComplete: () => {
+          this.$store.commit('toggleTransitionState', false);
+        }
       });
       this.tl.add(scaleWave).add(moveWave);
     },
@@ -55,11 +64,7 @@ export default {
       if (pointer.classList.contains('hovering')) {
         pointer.classList.remove('hovering');
       }
-      setTimeout(() => {
-        this.$store.commit('toggleProjectVisibility', true);
-      }, 500);
-      //document.body.classList.remove('animations--started');
-    }
-  }
+    },
+  },
 };
 </script>

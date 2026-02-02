@@ -22,32 +22,32 @@
         <p>Done</p>
       </div>
       <smooth-scroll>
-        <header>
-          <div
-            class="logo__wrapper"
-            @click="handleClick"
-          >
-            <img
-              class="logo"
-              alt="Aura Bravo logo"
-              src="/assets/img/Recurso1logo.png"
-            />
-          </div>
-          <div
-            class="nav-menu__trigger"
-            @click="openMenu"
-            :class="{
-              'nav-menu__trigger--triggered': $store.state.isMenuOpened
-            }"
-          >
-            <span></span>
-          </div>
-        </header>
         <div class="max-bound" id="appWrapper">
           <div
             class="main-container"
             :class="{ 'main-container--not-home': $route.path != '/' }"
           >
+            <header>
+              <div
+                class="logo__wrapper"
+                @click="handleClick"
+              >
+                <img
+                  class="logo"
+                  alt="Aura Bravo logo"
+                  src="/assets/img/Recurso1logo.png"
+                />
+              </div>
+              <div
+                class="nav-menu__trigger"
+                @click="openMenu"
+                :class="{
+                  'nav-menu__trigger--triggered': $store.state.isMenuOpened
+                }"
+              >
+                <span></span>
+              </div>
+            </header>
             <div
               class="content__container"
               :class="{ transitioning: $store.state.transitioning }"

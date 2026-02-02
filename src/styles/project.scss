@@ -35,7 +35,7 @@
 
   &__image {
     width: 100%;
-    max-width: 664px;
+    max-width: 800px;
     text-align: center;
     &--big {
       max-width: unset;
@@ -44,7 +44,7 @@
 
   &__right-content {
     width: 100%;
-    max-width: 664px;
+    max-width: 800px;
     flex-grow: 0;
     flex-shrink: 1;
   }
@@ -56,7 +56,7 @@
   }
 
   &__main-image {
-    width: 664px;
+    width: 800px;
     height: auto;
     position: absolute;
     top: 0;
@@ -64,7 +64,7 @@
   }
 
   &__title {
-    line-height: calc(96 / 72);
+    line-height: 1;
     font-style: italic;
 
     &::after {

@@ -23,25 +23,16 @@ body {
     margin-bottom: 10px;
     height: calc(100vh - 100px);
     text-align: left;
-    p {
-      opacity: 0;
-      transform: translateY(25px);
-      transition: opacity .7s, transform .5s;
-      transition-delay: 1.5s;
-      will-change: transform, opacity;
-    }
-    .animations--started & {
-      p {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
   }
   
   .contact .hero-info__wrapper {
     box-sizing: border-box;
     width: 100%;
     text-align: left;
+    
+    p {
+      overflow: hidden;
+    }
   }
   .contact .hero-wrapper, .contact .project__hero-wrapper {
   display: flex;

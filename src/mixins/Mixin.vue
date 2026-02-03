@@ -13,8 +13,9 @@ export default {
     };
   },
   methods: {
-    animateTitles() {
-      // Limpiar animaciones anteriores si existen
+    async animateTitles() {
+      await document.fonts.ready;
+      
       this.titleAnimations.forEach(split => split.revert());
       this.titleAnimations = [];
 
@@ -28,10 +29,9 @@ export default {
         
         this.titleAnimations.push(split);
 
-        // Usar clipPath para reveal effect (mask)
         gsap.from(split.chars, {
           yPercent: 100,
-          rotate: 20,
+          rotate: 10,
           duration: 0.7,
           ease: 'power3.out',
           stagger: 0.05,
@@ -44,13 +44,16 @@ export default {
       });
     },
     
-    animateHeroText() {
+    async animateHeroText() {
+      await document.fonts.ready;
+      
       const heroParagraphs = this.$el.querySelectorAll('.paragraph__lines-animation');
       
       heroParagraphs.forEach(p => {
-        const split = new SplitText(p, {
+        const split = SplitText.create(p, {
           type: 'lines',
-          linesClass: 'line'
+          linesClass: 'line',
+          autoSplit: true
         });
         
         this.textAnimations.push(split);
@@ -78,14 +81,11 @@ export default {
     },
 
     animateImages(selector = '.hero-background-image, .home__project-background-image, .image__element', startTrigger = 'top 80%') {
-      // Buscar todas las imágenes que necesiten animación de máscara
       gsap.utils.toArray(selector).forEach((img) => {
         const parent = img.parentElement;
         
-        // Establecer estado inicial explícitamente
         gsap.set([img, parent], { xPercent: 0 });
         
-        // Crear timeline para sincronizar ambas animaciones
         const tl = gsap.timeline({
           scrollTrigger: {
             trigger: img,
@@ -109,7 +109,6 @@ export default {
     },
     
     animateFadeInUp(selector = '.container__fade-in-animation', startTrigger = 'top 80%') {
-      // Buscar todos los elementos que necesiten fade-in desde abajo dentro del componente
       const elements = gsap.utils.toArray(selector);
       
       if (elements.length === 0) return;
@@ -130,13 +129,11 @@ export default {
       });
     },
     
-    // Alias para mantener compatibilidad
     animateHeroImage() {
       this.animateImages('.hero-background-image, .home__project-background-image', 'top 80%');
     }
   },
   beforeUnmount() {
-    // Limpiar SplitText al destruir
     this.titleAnimations.forEach(split => split.revert());
     this.textAnimations.forEach(split => split.revert());
     this.titleAnimations = [];

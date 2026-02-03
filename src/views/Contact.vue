@@ -33,20 +33,17 @@ export default {
   name: 'Contact',
   mixins: [Mixin, routerTransition],
   mounted() {
-    this.$nextTick(() => {
-      this.animateTitles();
+    this.$nextTick(async () => {
+      await this.animateTitles();
       
-      // Esperar un frame adicional para que todo termine de renderizar
-      requestAnimationFrame(() => {
-        this.animateHeroText();
+      requestAnimationFrame(async () => {
+        await this.animateHeroText();
       });
     });
   },
   beforeRouteLeave(to, from, next) {
     this.onRouteChange();
-    setTimeout(() => {
-      next();
-    }, 1400);
+    next();
   }
 };
 </script>

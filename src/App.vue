@@ -158,10 +158,9 @@ export default {
     $route(to, from) {
       this.showView = false;
 
-      // Esperar animación de salida antes de montar el nuevo
       setTimeout(() => {
         this.showView = true;
-      }, 100); // Cambia según la duración de tu animación de salida
+      }, 100);
     }
   }
 }

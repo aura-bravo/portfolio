@@ -6,12 +6,16 @@
   &__content-section {
     margin: 64px 0;
 
-    &--small-space {
-      margin-top: 120px;
+    @media (max-width: 1000px) {
+      margin: 48px 0;
     }
 
     &--big-space {
       margin-top: 120px;
+
+      @media (max-width: 1000px) {
+        margin-top: 48px;
+      }
     }
 
     &:first-of-type {
@@ -66,6 +70,7 @@
   &__title {
     line-height: 1;
     font-style: italic;
+    margin-bottom: 0;
 
     &::after {
       content: '';
@@ -85,6 +90,11 @@
     column-gap: 60px;
     flex-wrap: wrap;
     row-gap: 24px;
+    margin-top: 64px;
+
+    @media (max-width: 1000px) {
+      margin-top: 48px;
+    }
   }
 
   &__content-divided-block {
@@ -115,6 +125,10 @@
         left: -100vw;
       }
     }
+
+    @media (max-width: 1000px) {
+      height: 12vw;
+    }
   }
 
   &__text-carousel {
@@ -143,6 +157,10 @@
       height: 6px;
       background-color: black;
       border-radius: 50%;
+    }
+
+    @media (max-width: 1000px) {
+      font-size: 10vw;
     }
   }
 

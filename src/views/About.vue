@@ -169,12 +169,14 @@ export default {
   name: 'About',
   mixins: [Mixin, routerTransition, sectionCatcher],
   mounted() {
-    this.$nextTick(() => {
+    this.$nextTick(async () => {
       this.addScrolledClass();
-      this.animateTitles();
-      this.animateHeroText();
       
-      // Esperar un frame adicional para que todo termine de renderizar
+      await Promise.all([
+        this.animateTitles(),
+        this.animateHeroText()
+      ]);
+      
       requestAnimationFrame(() => {
         this.animateHeroImage();
         this.animateFadeInUp();
@@ -184,7 +186,6 @@ export default {
   beforeRouteLeave(to, from, next) {
     this.onRouteChange();
     next();
-    setTimeout(() => {}, 1400);
   }
 };
 </script>

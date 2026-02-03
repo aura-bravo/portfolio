@@ -83,12 +83,14 @@ export default {
   mixins: [Mixin, routerTransition, sectionCatcher],
   components: {},
   mounted() {
-    this.$nextTick(() => {
+    this.$nextTick(async () => {
       this.addScrolledClass();
-      this.animateTitles();
-      this.animateHeroText();
       
-      // Esperar un frame adicional para que el v-for termine de renderizar
+      await Promise.all([
+        this.animateTitles(),
+        this.animateHeroText()
+      ]);
+      
       requestAnimationFrame(() => {
         this.animateHeroImage();
       });
@@ -96,9 +98,7 @@ export default {
   },
   beforeRouteLeave(to, from, next) {
     this.onRouteChange();
-    setTimeout(() => {
       next();
-    }, 1400);
   }
 };
 </script>

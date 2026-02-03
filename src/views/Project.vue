@@ -128,7 +128,6 @@ export default {
     });
   },
   updated() {
-    // Cuando el proyecto cambia, reiniciar animaciones
     this.$nextTick(() => {
       this.initAnimations();
     });
@@ -136,14 +135,11 @@ export default {
   mixins: [Mixin, routerTransition],
   methods: {
     initAnimations() {
-      // Limpiar ScrollTriggers anteriores antes de crear nuevos
       ScrollTrigger.getAll().forEach(trigger => trigger.kill());
       
-      // Iniciar animaciones
       this.startAnimations();
       this.animateTextCarousel();
       
-      // Refresh después de un frame para que calcule bien las posiciones
       requestAnimationFrame(() => {
         ScrollTrigger.refresh();
       });
@@ -171,16 +167,16 @@ export default {
           });
         });
 
-        // Usar función reutilizable del mixin para animación de imágenes
         this.animateImages('.image__element', 'top 60%');
         gsap.from('.image__wrapper-vertical', {
           yPercent: -100,
           duration: 2,
           scrollTrigger: {
             trigger: '.image__wrapper-vertical',
-            start: `top+=${window.innerHeight / 1.125}`,
+            start: `top+=${window.innerHeight / 1.5}`,
             end: `bottom+=${window.innerHeight / 1.125}`,
             toggleActions: 'play none none none',
+            markers: true,
           }
         });
         gsap.from('.image__element-vertical', {
@@ -188,9 +184,10 @@ export default {
           duration: 2,
           scrollTrigger: {
             trigger: '.image__wrapper-vertical',
-            start: `top+=${window.innerHeight / 1.125}`,
+            start: `top+=${window.innerHeight / 1.5} top`,
             end: `bottom+=${window.innerHeight / 1.125}`,
             toggleActions: 'play none none none',
+            markers: true,
           }
         });
       });
@@ -218,7 +215,6 @@ export default {
     },
   },
   beforeUnmount() {
-    // Limpiar todos los ScrollTriggers al destruir el componente
     ScrollTrigger.getAll().forEach(trigger => trigger.kill());
   },
   computed: {

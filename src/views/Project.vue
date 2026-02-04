@@ -62,7 +62,7 @@
         <p class="project__right-content">{{projectResult}}</p>
       </div>
     </section>
-    <section class="project__content-section project__content-section--centered">
+    <section class="project__content-section project__content-section--centered project__content-section--vertical-image ">
       <div class="image__wrapper-vertical image__wrapper--vertical">
         <img class="image__element-vertical project__image" :src="project.largeImage">
       </div>
@@ -172,22 +172,20 @@ export default {
           yPercent: -100,
           duration: 2,
           scrollTrigger: {
-            trigger: '.image__wrapper-vertical',
-            start: `top+=${window.innerHeight / 1.5}`,
-            end: `bottom+=${window.innerHeight / 1.125}`,
+            trigger: '.project__content-section--vertical-image',
+            start: `top 40%`,
+            end: `bottom 100%`,
             toggleActions: 'play none none none',
-            markers: true,
           }
         });
         gsap.from('.image__element-vertical', {
           yPercent: 100,
           duration: 2,
           scrollTrigger: {
-            trigger: '.image__wrapper-vertical',
-            start: `top+=${window.innerHeight / 1.5} top`,
-            end: `bottom+=${window.innerHeight / 1.125}`,
+            trigger: '.project__content-section--vertical-image',
+            start: `top 40%`,
+            end: `bottom 100%`,
             toggleActions: 'play none none none',
-            markers: true,
           }
         });
       });

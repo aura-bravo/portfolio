@@ -139,7 +139,7 @@ p {
   .subsection-info__content {
     width: 100%;
     margin-bottom: 3vw;
-    margin-top: 3vw;
+    margin-top: 10vw;
   }
   .subsection-info__wrapper {
     flex-wrap: wrap;
@@ -148,10 +148,7 @@ p {
     width: 100%;
   }
   .about .section-spacer.section-spacer--large {
-    margin-top: 70px;
-    &:first-of-type {
-      margin-top: 40px;
-    }
+    margin-top: 0;
   }
   .about .hero-wrapper,
   .about .project__hero-wrapper {

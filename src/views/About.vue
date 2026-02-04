@@ -38,22 +38,18 @@
               <div class="subsection-info__content">
                 <h3>Experience</h3>
                 <p class="subsection-info__paragraph">
-                  Ilógica<br />Medellín, Colombia<br />APR 2022 - PRESENT
+                  Scripta<br />Remote, USA<br />NOV 2023 - PRESENT
+                </p>
+                <p class="subsection-info__paragraph">
+                  Ilógica<br />Medellín, Colombia<br />APR 2022 - NOV 2023
                 </p>
                 <p class="subsection-info__paragraph">
                   Bancolombia<br />Medellín, Colombia<br />
-                  SEP 2021 - APR 2022
-                </p>
-                <p class="subsection-info__paragraph">
-                  Multiplica Talent for Bancolombia<br />Medellín, Colombia<br />
-                  OCT 2020 - SEP 2021
-                </p>
-                <p class="subsection-info__paragraph">
-                  Eykkon<br />Medellín, Colombia<br />OCT 2020 - SEP 2017
+                  SEP 2020 - APR 2022
                 </p>
                 <p class="subsection-info__paragraph">
                   Dayvo Sistemas<br />Medellín, Colombia<br />
-                  AUG 2019 - JUN 2020
+                  AUG 2019 - JUL 2020
                 </p>
               </div>
               <div class="subsection-info__content">

@@ -15,7 +15,7 @@ export default defineConfig({
       scss: {
         api: 'modern-compiler',
         silenceDeprecations: ['legacy-js-api', 'import'],
-        additionalData: `@import "@/styles/variables.scss"; @import "@/styles/_typography.scss"; @import "@/styles/_base.scss";`
+        additionalData: `@import "@/styles/variables.scss";`
       }
     }
   },

@@ -93,8 +93,6 @@ p {
     }
   }
 
-  
-
   .title-animation.title-animation--copy {
     position: absolute;
     top: 0;
@@ -228,7 +226,6 @@ p {
     left: 0;
     width: 100%;
     h2 {
-      width: 60%;
       line-height: 1.2;
     }
   }
@@ -272,6 +269,7 @@ p {
       left: auto;
       text-align: right;
       justify-content: flex-end;
+      width: 100%;
       h2 {
         text-align: right;
       }
@@ -284,5 +282,14 @@ p {
       right: unset;
       left: unset;
     }
+
+    .home__project-info__wrapper .title-animation.title-animation--copy {
+      right: 0;
+      left: 0;
+    }
+  }
+  .home__project-wrapper .home__project-info__wrapper .title-animation.title-animation--copy {
+    right: 0;
+    left: 0;
   }
 }

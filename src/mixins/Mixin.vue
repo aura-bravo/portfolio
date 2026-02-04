@@ -14,12 +14,14 @@ export default {
   },
   methods: {
     async animateTitles() {
-      await document.fonts.ready;
-      
       this.titleAnimations.forEach(split => split.revert());
       this.titleAnimations = [];
 
       const titles = this.$el.querySelectorAll('.title-animation');
+      
+      gsap.set(titles, { opacity: 0 });
+      
+      await document.fonts.ready;
       
       titles.forEach(title => {
         const split = new SplitText(title, {
@@ -29,6 +31,8 @@ export default {
         
         this.titleAnimations.push(split);
 
+        gsap.set(title, { opacity: 1 });
+        
         gsap.from(split.chars, {
           yPercent: 100,
           rotate: 10,
@@ -45,9 +49,11 @@ export default {
     },
     
     async animateHeroText() {
-      await document.fonts.ready;
-      
       const heroParagraphs = this.$el.querySelectorAll('.paragraph__lines-animation');
+      
+      gsap.set(heroParagraphs, { opacity: 0 });
+      
+      await document.fonts.ready;
       
       heroParagraphs.forEach(p => {
         const split = SplitText.create(p, {
@@ -64,6 +70,8 @@ export default {
           line.parentNode.insertBefore(wrapper, line);
           wrapper.appendChild(line);
         });
+
+        gsap.set(p, { opacity: 1 });
 
         gsap.from(split.lines, {
           yPercent: 100,

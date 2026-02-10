@@ -1,7 +1,9 @@
-<template lang="pug">
-    #smooth-wrapper
-        #smooth-content
-            slot
+<template>
+  <div id="smooth-wrapper">
+    <div id="smooth-content">
+      <slot></slot>
+    </div>
+  </div>
 </template>
 
 <script>

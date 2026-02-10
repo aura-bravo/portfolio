@@ -11,13 +11,13 @@
             <div class="title-animation">Let's talk</div>
           </h1>
           <p>
-            <a href="mailto:bravo.aura95@gmail.com" class="contact-info"
+            <a href="mailto:bravo.aura95@gmail.com" class="contact-info paragraph__lines-animation"
               >bravo.aura95@gmail.com</a
             >
           </p>
           <p>
-            <a href="tel:+573148450663" class="contact-info"
-              >+57 314 845 0663</a
+            <a href="tel:+573148450663" class="contact-info paragraph__lines-animation"
+              >+57 (320) 215-7085</a
             >
           </p>
         </div>
@@ -27,16 +27,23 @@
 </template>
 
 <script>
-import Mixin from '../mixins/Mixin';
-import routerTransition from '../mixins/router-transition';
+import Mixin from '../mixins/Mixin.vue';
+import routerTransition from '../mixins/router-transition.vue';
 export default {
   name: 'Contact',
   mixins: [Mixin, routerTransition],
+  mounted() {
+    this.$nextTick(async () => {
+      await this.animateTitles();
+      
+      requestAnimationFrame(async () => {
+        await this.animateHeroText();
+      });
+    });
+  },
   beforeRouteLeave(to, from, next) {
     this.onRouteChange();
-    setTimeout(() => {
-      next();
-    }, 1400);
+    next();
   }
 };
 </script>

@@ -3,9 +3,7 @@ import gsap from 'gsap';
 export default {
   mounted() {
     this.scrollMeasurer = document.querySelector('.scroll-measurer span');
-    setTimeout(() => {
-      this.init();
-    }, 1000);
+    this.init();
   },
   data() {
     return {

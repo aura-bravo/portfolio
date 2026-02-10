@@ -22,32 +22,32 @@
         <p>Done</p>
       </div>
       <smooth-scroll>
-        <header>
-          <div
-            class="logo__wrapper"
-            @click="handleClick"
-          >
-            <img
-              class="logo"
-              alt="Aura Bravo logo"
-              src="../public/assets/img/Recurso1logo.png"
-            />
-          </div>
-          <div
-            class="nav-menu__trigger"
-            @click="openMenu"
-            :class="{
-              'nav-menu__trigger--triggered': $store.state.isMenuOpened
-            }"
-          >
-            <span></span>
-          </div>
-        </header>
         <div class="max-bound" id="appWrapper">
           <div
             class="main-container"
             :class="{ 'main-container--not-home': $route.path != '/' }"
           >
+            <header>
+              <div
+                class="logo__wrapper"
+                @click="handleClick"
+              >
+                <img
+                  class="logo"
+                  alt="Aura Bravo logo"
+                  src="/assets/img/Recurso1logo.png"
+                />
+              </div>
+              <div
+                class="nav-menu__trigger"
+                @click="openMenu"
+                :class="{
+                  'nav-menu__trigger--triggered': $store.state.isMenuOpened
+                }"
+              >
+                <span></span>
+              </div>
+            </header>
             <div
               class="content__container"
               :class="{ transitioning: $store.state.transitioning }"
@@ -66,8 +66,8 @@
 <script>
 import { gsap } from 'gsap';
 import routerTransitionVue from './mixins/router-transition.vue';
-import scrollMeasure from './mixins/scroll-measure';
-import * as debounce from 'lodash.debounce';
+import scrollMeasure from './mixins/scroll-measure.vue';
+import debounce from 'lodash.debounce';
 import SmoothScroll from './views/SmoothScroll.vue';
 export default {
   components: { SmoothScroll },
@@ -158,10 +158,9 @@ export default {
     $route(to, from) {
       this.showView = false;
 
-      // Esperar animación de salida antes de montar el nuevo
       setTimeout(() => {
         this.showView = true;
-      }, 100); // Cambia según la duración de tu animación de salida
+      }, 100);
     }
   }
 }

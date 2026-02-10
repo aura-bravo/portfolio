@@ -7,7 +7,7 @@
           <h1 class="title__wrapper">
             <div class="title-animation">Hi there,</div>
           </h1>
-          <p>
+          <p class="paragraph__lines-animation">
             I'm Aura, a designer with a little bit of a coffee addiction, a
             passion for traveling and a thriving interest in creating
             experiences and stories that can connect with people trough visually
@@ -49,9 +49,9 @@
             </div>
             <div class="home__project-info__wrapper">
               <h2 class="h1 title__wrapper">
-                <div class="title-animation">{{ data.title }}</div>
+                <div class="title-animation"><span>{{ data.title }}</span></div>
                 <div class="title-animation title-animation--copy">
-                  {{ data.title }}
+                  <span>{{ data.title }}</span>
                 </div>
               </h2>
               <div class="home__project-number__wrapper">
@@ -68,9 +68,9 @@
 
 <script>
 import store from './../store/index';
-import Mixin from '../mixins/Mixin';
-import routerTransition from '../mixins/router-transition';
-import sectionCatcher from '../mixins/section-catcher';
+import Mixin from '../mixins/Mixin.vue';
+import routerTransition from '../mixins/router-transition.vue';
+import sectionCatcher from '../mixins/section-catcher.vue';
 export default {
   name: 'Home',
   data() {
@@ -83,17 +83,22 @@ export default {
   mixins: [Mixin, routerTransition, sectionCatcher],
   components: {},
   mounted() {
-    this.$nextTick(() => {
+    this.$nextTick(async () => {
       this.addScrolledClass();
+      
+      await Promise.all([
+        this.animateTitles(),
+        this.animateHeroText()
+      ]);
+      
+      requestAnimationFrame(() => {
+        this.animateHeroImage();
+      });
     });
-    this.breakAllTitles();
-    this.startAnimations();
   },
   beforeRouteLeave(to, from, next) {
     this.onRouteChange();
-    setTimeout(() => {
       next();
-    }, 1400);
   }
 };
 </script>
